@@ -20,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,7 +40,6 @@ public class ListItemsActivity extends AppCompatActivity {
     private RecyclerView mListItemsRecyclerView;
     private ListItemsAdapter mAdapter;
     private ArrayList<ListItem> myListItems;
-    private String Uid;
 
 
     @Override
@@ -49,11 +47,9 @@ public class ListItemsActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_items);
-        // get the uid of the current user
-        Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         mDB= FirebaseDatabase.getInstance().getReference();
-        mListItemRef = mDB.child("listItem").child(Uid);
+        mListItemRef = mDB.child("listItem");
         myListItems = new ArrayList<>();
         mListItemsRecyclerView = (RecyclerView)findViewById(R.id.listItem_recycler_view);
         mListItemsRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getResources()));
@@ -163,7 +159,7 @@ public class ListItemsActivity extends AppCompatActivity {
                         ListItem listItem = new ListItem(listItemText, listItemExpiration, listItemTags);
                         Map<String, Object> listItemValues = listItem.toMap();
                         Map<String, Object> childUpdates = new HashMap<>();
-                        childUpdates.put("/listItem/" + Uid + "/" + key, listItemValues);
+                        childUpdates.put("/listItem/" + key, listItemValues);
                         FirebaseDatabase.getInstance().getReference().updateChildren(childUpdates);
 
                     }
@@ -241,4 +237,6 @@ public class ListItemsActivity extends AppCompatActivity {
 
         }
     }
+
+
 }

@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
      * Validating form
      */
     private void submitForm() {
-        final String email = loginInputEmail.getText().toString().trim();
+        String email = loginInputEmail.getText().toString().trim();
         String password = loginInputPassword.getText().toString().trim();
 
         if(!checkEmail()) {
