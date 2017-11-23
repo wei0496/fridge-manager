@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "116135245907",
+    "firebase_url": "https://fir-grocerylistapp-c8f5c.firebaseio.com",
+    "project_id": "fir-grocerylistapp-c8f5c",
+    "storage_bucket": "fir-grocerylistapp-c8f5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116135245907:android:e40136612130b98d",
+        "android_client_info": {
+          "package_name": "com.androidtutorialpoint.firebasegrocerylistapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "116135245907-mlm0dkv7qt4hkt49s1ds1cncmeki89qs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVygiJdpEBtiPpC4uEDNFQ2yWi2ceDc8U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
