@@ -62,7 +62,6 @@ public class ListItemsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplication(),Profio.class);
                 startActivity(intent);
-                finish();
             }
         });
 

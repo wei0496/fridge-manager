@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
@@ -32,6 +33,7 @@ public class Profio extends Activity {
     ProfilePictureView avatar;
     Bitmap bmp = null;
     Button pwdBtn;
+    TextView nameTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +47,7 @@ public class Profio extends Activity {
 
         avatar.setDefaultProfilePicture(bmp);
         profile = Profile.getCurrentProfile();
-        Log.w("fberror",profile.getName());
+//        Log.w("fberror",profile.getName());
 //        if(profile!=null)
 //        {
 //            avatar.setProfileId(profile.getId());
@@ -57,6 +59,8 @@ public class Profio extends Activity {
         pwdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplication(),changePSW.class);
+                startActivity(intent);
 
             }
         });
@@ -64,6 +68,10 @@ public class Profio extends Activity {
         //qpx
         //logout:
         auth = FirebaseAuth.getInstance();
+        // who is User
+        nameTv = (TextView) findViewById(R.id.UserNameTxt);
+        nameTv.setText((CharSequence) auth.getCurrentUser().getEmail());
+
         logOut = (Button) findViewById(R.id.logOut);
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,4 +95,9 @@ public class Profio extends Activity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }
