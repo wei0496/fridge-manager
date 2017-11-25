@@ -46,6 +46,7 @@ public class ListItemsActivity extends AppCompatActivity {
     private ListItemsAdapter mAdapter;
     private ArrayList<ListItem> myListItems;
     private Button profile;
+    private String Uid;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -67,8 +68,10 @@ public class ListItemsActivity extends AppCompatActivity {
 
 
         //
+        Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         mDB= FirebaseDatabase.getInstance().getReference();
-        mListItemRef = mDB.child("listItem");
+        mListItemRef = mDB.child("listItem").child(Uid);
         myListItems = new ArrayList<>();
         mListItemsRecyclerView = (RecyclerView)findViewById(R.id.listItem_recycler_view);
         mListItemsRecyclerView.addItemDecoration(new SimpleDividerItemDecoration(getResources()));
