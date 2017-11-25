@@ -46,10 +46,10 @@ public class Profio extends Activity {
         avatar.setDefaultProfilePicture(bmp);
         profile = Profile.getCurrentProfile();
         Log.w("fberror",profile.getName());
-        if(profile!=null)
-        {
-            avatar.setProfileId(profile.getId());
-        }
+//        if(profile!=null)
+//        {
+//            avatar.setProfileId(profile.getId());
+//        }
 
         //qpx
         //change password
