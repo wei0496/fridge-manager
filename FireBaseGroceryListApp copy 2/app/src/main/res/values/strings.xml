@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">FireBaseGroceryListApp</string>
     <string name="action_settings">Settings</string>
-    <string  name="minimum_password">Password too short, enter minimum 6 characters!</string>
-    <string  name="auth_failed">Authentication error, Please enter a valid email and password or sign up</string>
-    <string  name="hint_email">Email</string>
-    <string  name="hint_password">Password</string>
-    <string  name="btn_login">LOGIN</string>
-    <string  name="btn_link_to_login">Already registered. Login !!</string>
-    <string  name="btn_sign_out">Sign Out</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="auth_failed">Authentication error, Please enter a valid email and password or sign up</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_link_to_login">Already registered. Login !!</string>
+    <string name="btn_sign_out">Sign Out</string>
     <string name="btn_sign_up">Sign Up !!</string>
     <string name="err_msg_email">Enter a valid email.</string>
     <string name="err_msg_required">Required !!</string>
@@ -17,4 +17,7 @@
     <string name="are_you_sure">Want to Delete ??</string>
     <string name="dialog_single_button">Create</string>
     <string name="enter_listItem_text">Enter Item !!</string>
+    <string name="logOut">Log Out</string>
+    <string name="facebook_app_id">318570948621528</string>
+    <string name="fb_login_protocol_scheme">fb318570948621528</string>
 </resources>

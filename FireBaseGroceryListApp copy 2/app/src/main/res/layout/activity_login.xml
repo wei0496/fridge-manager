@@ -40,6 +40,15 @@
         android:background="@color/colorPrimaryDark"
         android:layout_marginTop="40dp"
         android:textColor="@android:color/white"/>
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fbLoginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp" />
+
     <Button android:id="@+id/btn_link_signup"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

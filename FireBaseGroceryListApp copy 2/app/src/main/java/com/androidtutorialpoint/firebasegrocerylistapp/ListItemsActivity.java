@@ -15,10 +15,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -40,14 +45,29 @@ public class ListItemsActivity extends AppCompatActivity {
     private RecyclerView mListItemsRecyclerView;
     private ListItemsAdapter mAdapter;
     private ArrayList<ListItem> myListItems;
-
-
+    private Button profile;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_items);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+        // qpx
+        // go to profile
+        profile = (Button) findViewById(R.id.profileBtn);
 
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplication(),Profio.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
+        //
         mDB= FirebaseDatabase.getInstance().getReference();
         mListItemRef = mDB.child("listItem");
         myListItems = new ArrayList<>();
@@ -100,6 +120,7 @@ public class ListItemsActivity extends AppCompatActivity {
                 Log.d(TAG+"Cancelled",databaseError.toString());
             }
         });
+
 
 
     }

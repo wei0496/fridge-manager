@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.telecom.Call;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -13,9 +15,24 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.facebook.login.widget.ProfilePictureView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthCredential;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
@@ -29,11 +46,27 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputLayout loginInputLayoutEmail, loginInputLayoutPassword;
 
 
+    //facebook log in related
+    private CallbackManager fbCallBack;
+    private LoginButton fbLogBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
+
+
         auth = FirebaseAuth.getInstance();
+        //qpx
+        //check user is login:
+        if(auth.getCurrentUser()!=null)
+        {
+            Intent intent = new Intent(LoginActivity.this, ListItemsActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         loginInputLayoutEmail = (TextInputLayout) findViewById(R.id.login_input_layout_email);
         loginInputLayoutPassword = (TextInputLayout) findViewById(R.id.login_input_layout_password);
@@ -59,7 +92,64 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+        //facebook log in related:
+        fbCallBack = CallbackManager.Factory.create();
+        fbLogBtn = (LoginButton) findViewById(R.id.fbLoginBtn);
+        fbLogBtn.setReadPermissions("email","public_profile","user_photos");
+        fbLogBtn.registerCallback(fbCallBack, new FacebookCallback<LoginResult>() {
+            private ProfileTracker profileTracker;
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.w("facebookLogin:","success");
+
+                handleFacebookLogin(loginResult.getAccessToken());
+
+            }
+
+            @Override
+            public void onCancel() {
+                Log.w("facebookLogin:","fail");
+
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.w("facebookLogin:","error");
+
+            }
+        });
+
+
     }
+
+    // facebook login:
+    private void handleFacebookLogin(AccessToken token)
+    {
+        progressBar.setVisibility(View.VISIBLE);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.setVisibility(View.GONE);
+
+                if (!task.isSuccessful())
+                {
+                    Toast.makeText(getApplicationContext(),"Authentication fails", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    Intent intent = new Intent(LoginActivity.this, ListItemsActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+    }
+
 
     /**
      * Validating form
@@ -146,5 +236,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    // for facebook login:
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        fbCallBack.onActivityResult(requestCode,resultCode,data);
     }
 }
