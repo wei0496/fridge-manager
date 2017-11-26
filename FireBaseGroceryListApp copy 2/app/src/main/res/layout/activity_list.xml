@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +8,16 @@
     android:paddingRight="15dp"
     android:paddingTop="16dp"
     android:background="@drawable/bg0">
+
+    <ImageView
+        android:id="@+id/imVShown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/cart" />
+
     <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,14 +26,14 @@
     android:gravity="center"
     android:textColor="#ffffff"
     android:textSize="20sp"
-    />
+        android:id="@+id/textView2" />
     <ImageView
         android:layout_width="30dp"
         android:layout_height="20dp"
        android:src="@drawable/return_1"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        />
+        android:id="@+id/imageView" />
 
     <TextView
         android:layout_width="match_parent"
@@ -35,7 +46,8 @@
         android:paddingLeft="30dp"
         android:text="Oct.14th.2017"
         android:textColor="@color/blue_color"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:id="@+id/textView3" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -122,4 +134,25 @@
             />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnUseGallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text="UseGallery" />
+
+    <Button
+        android:id="@+id/btnUseCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView3"
+        android:layout_toEndOf="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:text="useCamera" />
+
 </RelativeLayout>

@@ -36,7 +36,7 @@ dependencies {
     compile 'com.google.firebase:firebase-core:9.0.2'
     compile 'com.google.firebase:firebase-database:9.0.2'
     compile 'com.android.support:recyclerview-v7:24.2.0'
-
+    compile 'com.rmtheis:tess-two:8.0.0'
 
 }
 apply plugin: 'com.google.gms.google-services'

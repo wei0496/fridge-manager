@@ -5,6 +5,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="10dp" >
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/login_input_layout_email"
         android:layout_width="match_parent"

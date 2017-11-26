@@ -57,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
 
 
-
         auth = FirebaseAuth.getInstance();
         //qpx
         //check user is login:
