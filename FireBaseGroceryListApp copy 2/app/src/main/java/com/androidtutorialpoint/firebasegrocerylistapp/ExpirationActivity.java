@@ -33,7 +33,15 @@ public class ExpirationActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+
         Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        Log.w("here",TAG);
+
+        if(Uid==null)
+        {
+            Intent intent = new Intent(ExpirationActivity.this, SignupActivity.class);
+            startActivity(intent);
+        }
 
         mDB= FirebaseDatabase.getInstance().getReference();
         mListItemRef = mDB.child("listItem").child(Uid);

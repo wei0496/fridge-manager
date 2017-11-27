@@ -16,13 +16,14 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ExpirationActivity"/>
+
         <activity android:name=".SignupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
