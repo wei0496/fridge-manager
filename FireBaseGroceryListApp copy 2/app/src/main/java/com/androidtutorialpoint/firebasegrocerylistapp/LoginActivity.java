@@ -62,7 +62,9 @@ public class LoginActivity extends AppCompatActivity {
         //check user is login:
         if(auth.getCurrentUser()!=null)
         {
-            Intent intent = new Intent(LoginActivity.this, ListItemsActivity.class);
+//            Intent intent = new Intent(LoginActivity.this, ListItemsActivity.class);
+
+            Intent intent = new Intent(LoginActivity.this, ListActivity.class);
             startActivity(intent);
             finish();
         }
@@ -140,8 +142,10 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Authentication fails", Toast.LENGTH_SHORT).show();
                 }
                 else {
+//                    Intent intent = new Intent(LoginActivity.this, ListItemsActivity.class);
 
-                    Intent intent = new Intent(LoginActivity.this, ListItemsActivity.class);
+
+                    Intent intent = new Intent(LoginActivity.this, ListActivity.class);
                     startActivity(intent);
                     finish();
                 }
@@ -181,7 +185,9 @@ public class LoginActivity extends AppCompatActivity {
                              Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
 
                         } else {
-                            Intent intent = new Intent(LoginActivity.this, ListItemsActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, ListActivity.class);
+
+//                            Intent intent = new Intent(LoginActivity.this, ListItemsActivity.class);
                             startActivity(intent);
                             finish();
                         }

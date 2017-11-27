@@ -15,6 +15,19 @@ public class ListItem {
     private String ExpirationDate;
     private String listItemCreationDate;
     private String Tag;
+    private Boolean reOrFree;// re: true; freezer:false
+
+
+    ListItem(BGItem bgItem)
+    {
+        this.listItemText = bgItem.id;
+        this.ExpirationDate = Integer.toString(bgItem.expiration_duration);
+        this.Tag = bgItem.type_tag;
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        this.listItemCreationDate = sdf.format(new Date());
+
+
+    }
 
     public String getListItemText() {
         return listItemText;
@@ -27,31 +40,105 @@ public class ListItem {
     public void setListItemCreationDate(String listItemCreationDate) {
         this.listItemCreationDate = listItemCreationDate;
     }
+    public boolean setExpirationDate(String date)
+    {
+        try {
+            this.ExpirationDate = date;
+            return true;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+            return false;
+        }
+    }
+
 
     @Override
     public String toString() {
         return this.listItemText +"\n" + this.listItemCreationDate;
     }
 
-    public String getName() {return listItemText;}
+    public String getName() {
+        if(listItemText!=null)
+            return listItemText;
+        else
+            return null;
+    }
     public String getListItemCreationDate() {
-        return listItemCreationDate;
+        if(listItemText!=null)
+            return listItemCreationDate;
+        else
+            return null;
     }
 
-    public String getExpirationDate() {return ExpirationDate; }
+    public String getExpirationDate() {
+        if(ExpirationDate!=null)
+            return ExpirationDate;
+        else
+            return null;
+    }
 
-    public String getTag() {return Tag; }
+    public String getTag() {
+        if(Tag!=null)
+            return Tag;
+        else
+            return null;
+    }
 
+    public Boolean setTag(String tag){
+        try{
+            this.Tag = tag;
+            return true;
+        }
+        catch (Exception e)
+        {
+            System.out.print(e);
+            return false;
+        }
+    }
+    public String getReOrFree()
+    {
+        if (reOrFree!=null)
+            return Boolean.toString(reOrFree);
+        else
+            return null;
+    }
+    public Boolean setReOrFree(Boolean reOrFree)
+    {
+        try{
+            this.reOrFree = reOrFree;
+            return true;
+        }
+        catch (Exception e)
+        {
+            System.out.print(e);
+            return false;
+        }
+
+    }
     public ListItem() {
         // Default constructor required for calls to DataSnapshot.getValue(ListItem.class)
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        this.listItemCreationDate = sdf.format(new Date());
     }
 
     public ListItem(String listItemText, String Expiration, String Tag) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         this.listItemCreationDate = sdf.format(new Date());
+
         this.listItemText = listItemText;
         this.ExpirationDate = Expiration;
         this.Tag = Tag;
+    }
+    public ListItem(String listItemText, String Expiration, String Tag, Boolean reOrFree) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        this.listItemCreationDate = sdf.format(new Date());
+
+        this.listItemText = listItemText;
+        this.ExpirationDate = Expiration;
+        this.Tag = Tag;
+        this.reOrFree = reOrFree;
     }
 
     @Exclude
