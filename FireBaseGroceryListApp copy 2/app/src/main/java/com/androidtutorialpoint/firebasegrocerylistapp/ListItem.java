@@ -141,6 +141,14 @@ public class ListItem {
         this.reOrFree = reOrFree;
     }
 
+    public boolean BGable()
+    {
+        if(this.ExpirationDate!=null && this.Tag!=null && this.listItemText!=null)
+            return true;
+        else
+            return false;
+    }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -148,6 +156,7 @@ public class ListItem {
         result.put("listItemCreationDate", listItemCreationDate);
         result.put("ExpirationDate", ExpirationDate);
         result.put("Tag", Tag);
+        result.put("reOrFree",reOrFree);
         return result;
     }
 

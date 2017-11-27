@@ -30,6 +30,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.androidtutorialpoint.firebasegrocerylistapp.Item;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -71,9 +72,10 @@ public class ListActivity extends AppCompatActivity {
     String[] tag2s = {"Refrigerator","Freezer"};
     ListView lv;
     TextView tv[];//bottom
-    ArrayList<ListItem> updateList;
+    ArrayList<ListItem> updateBG;
     Map<String, Boolean> inBG;
-    Map<String, ListItem> find;
+    Map<String, Integer> find;
+
     Button submit;
 
     DatabaseReference mBackDB;
@@ -164,7 +166,7 @@ public class ListActivity extends AppCompatActivity {
     //qpx: add to view: add the ocr result to listview
     public void addToView(String[] result)
     {
-        updateList = new ArrayList<>();
+        updateBG = new ArrayList<>();
         mBackDB= FirebaseDatabase.getInstance().getReference().child("resource");
         for(final String rawItem:result) {
             //1. check whether in background database.
@@ -180,16 +182,21 @@ public class ListActivity extends AppCompatActivity {
                     Log.w("item1:",listItem.getListItemText());
 
                     inBG.put(listItem.getListItemText(),true);
-                    find.put(listItem.getListItemText(),listItem);
                     list.add(listItem);
                     adapter.update(list);
 
                 } else {
                     ListItem listItem = new ListItem();
                     listItem.setListItemText(rawItem);
-                    inBG.put(rawItem,false);
-                    find.put(rawItem,listItem);
+
+                    //test bg:
+                    listItem.setExpirationDate("10");
+                    //
+
+
+                    find.put(rawItem,find.size());
                     list.add(listItem);
+                    updateBG.add(listItem);
                     adapter.update(list);
                 }
             }
@@ -387,26 +394,53 @@ public class ListActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(list.size()==0)
+                if (list.size() == 0)
                     return;
+                for (ListItem listItem : list) {
 
-                updateToUserDB();
-                updateToBackDB();
+                        updateToUserDB(listItem);
+                        if (find.containsKey(listItem.getListItemText()) && listItem.BGable()) {
+                            updateToBackDB(listItem);
+                        }
 
 
 
+
+                }
                 list.clear();
+                find.clear();
+                adapter.update(list);
+
             }
         });
     }
 
-    public void updateToUserDB()
+    public void updateToUserDB(ListItem listItem)
     {
-        String key = FirebaseDatabase.getInstance().getReference().child("listItem").push().getKey();
+        //repeat element
+
+        //upload
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference ref = database.getReference().child("listItem").child(uid);
+        String key = ref.push().getKey();
+            Map<String, Object> listItemValues = listItem.toMap();
+            Map<String, Object> childUpdates = new HashMap<>();
+            childUpdates.put(key, listItemValues);
+            ref.updateChildren(childUpdates);
+            Log.w("ref",ref.toString());
 
     }
-    public void updateToBackDB()
+    public void updateToBackDB(ListItem listItem)
     {
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("resource");
+            BGItem bgItem = new BGItem(listItem);
+            Map<String,Object> bgitemValue = bgItem.toMap();
+            Map<String, Object> childUpdates = new HashMap<>();
+            childUpdates.put(bgItem.id.toUpperCase(),bgitemValue);
+            ref.updateChildren(childUpdates);
+            Log.w("bgADD:","/resource/" + bgItem.id.toUpperCase());
+
 
     }
 
@@ -537,6 +571,11 @@ public class ListActivity extends AppCompatActivity {
                         s = new SpannableStringBuilder(old);
                     else {
                         list.get(position).setListItemText(s.toString());
+                        if(find.containsKey(list.get(position).getListItemText()))
+                        {
+                            int index = find.get(list.get(position).getListItemText());
+                            updateBG.get(index).setListItemText(s.toString());
+                        }
                         Log.w("Name Changed", list.get(position).getListItemText());
                     }
                 }
@@ -586,6 +625,11 @@ public class ListActivity extends AppCompatActivity {
                         s = new SpannableStringBuilder(old);
                     else{
                         list.get(position).setExpirationDate(s.toString());
+                        if(find.containsKey(list.get(position).getListItemText()))
+                        {
+                            int index = find.get(list.get(position).getListItemText());
+                            updateBG.get(index).setTag(s.toString());
+                        }
                         s = new SpannableStringBuilder(s.toString()+"Days");
                         Log.w("Day Changed", list.get(position).getExpirationDate());
                     }
@@ -620,6 +664,11 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 list.get(pos).setTag(tag1s[which]);
+                if(find.containsKey(list.get(pos).getListItemText()))
+                {
+                    int index = find.get(list.get(pos).getListItemText());
+                    updateBG.get(index).setTag(tag1s[which]);
+                }
                 adapter.notifyDataSetChanged();
             }
         });
@@ -634,9 +683,23 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if(which == 0)
+                {
                     list.get(pos).setReOrFree(true);
-                else
+                    if(find.containsKey(list.get(pos).getListItemText()))
+                    {
+                        int index = find.get(list.get(pos).getListItemText());
+                        updateBG.get(index).setReOrFree(true);
+                    }
+                }
+                else {
                     list.get(pos).setReOrFree(false);
+                    if(find.containsKey(list.get(pos).getListItemText()))
+                    {
+                        int index = find.get(list.get(pos).getListItemText());
+                        updateBG.get(index).setReOrFree(false);
+                    }
+
+                }
                 adapter.notifyDataSetChanged();
             }
         });
