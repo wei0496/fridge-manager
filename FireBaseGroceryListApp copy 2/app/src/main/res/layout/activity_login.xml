@@ -4,15 +4,26 @@
     android:layout_height="fill_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:paddingTop="56dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:background="@mipmap/bg3" >
+
+    <ImageView android:src="@mipmap/magicfridge"
+        android:layout_width="wrap_content"
+        android:layout_height="72dp"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center_horizontal" />
 
     <android.support.design.widget.TextInputLayout
+        style="@style/InputStyle"
         android:id="@+id/login_input_layout_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp">
         <EditText
+            style="@style/InputStyle"
             android:id="@+id/login_input_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,25 +33,49 @@
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:id="@+id/login_input_layout_password"
+        style="@style/InputStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp">
         <EditText
+            style="@style/InputStyle"
             android:id="@+id/login_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
             android:hint="@string/hint_password" />
+
     </android.support.design.widget.TextInputLayout>
-    <Button android:id="@+id/btn_login"
-        android:layout_width="fill_parent"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_login"
-        android:background="@color/colorPrimaryDark"
-        android:layout_marginTop="40dp"
-        android:textColor="@android:color/white"/>
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/ButtonTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:background="@mipmap/submit_button_1"
+            android:text="@string/btn_login"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_guest"
+            style="@style/ButtonTheme"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:background="@mipmap/submit_button_1"
+            android:text="guest"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/fbLoginBtn"
