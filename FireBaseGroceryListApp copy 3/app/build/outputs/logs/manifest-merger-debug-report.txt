@@ -1,0 +1,513 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+MERGED from [com.facebook.android:facebook-android-sdk:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.28.0.aar/2160bdda50ad6c75756994065235d7af/AndroidManifest.xml:21:1-31:12
+MERGED from [com.android.support:design:24.2.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/08da1391af507b3161a2ffbdce264eb0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.android:facebook-login:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-login-4.28.0.aar/b00af5e0d07016a5925b9a7164686b85/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-share:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-share-4.28.0.aar/f9db350f26a95cb3cb2af653150b7b3f/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:21:1-36:12
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.firebase:firebase-auth:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-9.0.2.aar/336c2a2e4a3b7a1b640ffaa38b59ee17/AndroidManifest.xml:16:1-22:12
+MERGED from [com.google.firebase:firebase-core:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-core-9.0.2.aar/78a089ab8216041ccb976637b9f1cddc/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-database:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-database-9.0.2.aar/838aeefe6887cb2df9f1e3c5968ab118/AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support:recyclerview-v7:24.2.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-24.2.0.aar/d113271a1a4a044bc4a00156a911e0c4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.rmtheis:tess-two:8.0.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/tess-two-8.0.0.aar/63a7ca766eb338201a26e90cb28ae6ea/AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/d8f1888c3bc3ce1204a3200897d62934/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.android:facebook-places:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-places-4.28.0.aar/1fe48c4a0dbab73c48ba2f5c918059ff/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-applinks:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-applinks-4.28.0.aar/739918e0b6e6c2260ba48cfecbc27c96/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-messenger:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.28.0.aar/a343184abc052c662ff00c82ce864be1/AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:21:1-45:12
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/b9b58b84633dbe08212e2e6d7e44b6f4/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/35861eb6433678f05f53798d4321c3cf/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.firebase:firebase-auth-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-common-9.0.2.aar/67f3945379cb41fe1abae41c4587e149/AndroidManifest.xml:16:1-22:12
+MERGED from [com.google.firebase:firebase-auth-module:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-module-9.0.2.aar/722065a78dbba01f625f966e5b55f415/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-database-connection:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-9.0.2.aar/9fee534b6cbf067df72249b5555555b5/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:16:1-42:12
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:16:1-42:12
+MERGED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:16:1-60:12
+MERGED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.gms:play-services-tasks:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/5fcb1e21368c3d45d75f9da43cd26c78/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.0.2.aar/aa311c8d9af3824c16b70549fe79a131/AndroidManifest.xml:16:1-26:12
+MERGED from [com.android.support:support-v4:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/8cb438ea127d762d2ba177a5b341ef84/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/36ff92c7d8380a2b30c3068473bcc43a/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e1176f5cec91971df242ec0bccd9c9d6/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:customtabs:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/customtabs-25.3.1.aar/9c94cfc74102635aa74e17d102cce225/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/92abc01cd54d501112b94515b443a973/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/8268a322d2cf111bfe29468c52067308/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/4d02f0b85ba385e90d60a40015ae0a82/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/ac99b7c417dd8b4b9f165657c5ad9042/AndroidManifest.xml:17:1-28:12
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+	package
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:3:5-62
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:1-74:12
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:21:5-67
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:6:22-78
+application
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:8:5-72:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.28.0.aar/2160bdda50ad6c75756994065235d7af/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.28.0.aar/2160bdda50ad6c75756994065235d7af/AndroidManifest.xml:28:5-29:19
+MERGED from [com.android.support:design:24.2.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/08da1391af507b3161a2ffbdce264eb0/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:24.2.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/08da1391af507b3161a2ffbdce264eb0/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.android:facebook-login:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-login-4.28.0.aar/b00af5e0d07016a5925b9a7164686b85/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-login-4.28.0.aar/b00af5e0d07016a5925b9a7164686b85/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-share-4.28.0.aar/f9db350f26a95cb3cb2af653150b7b3f/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-share-4.28.0.aar/f9db350f26a95cb3cb2af653150b7b3f/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:28:5-34:19
+MERGED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:28:5-34:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:29:5-20
+MERGED from [com.google.firebase:firebase-auth:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-9.0.2.aar/336c2a2e4a3b7a1b640ffaa38b59ee17/AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.firebase:firebase-auth:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-9.0.2.aar/336c2a2e4a3b7a1b640ffaa38b59ee17/AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.firebase:firebase-core:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-core-9.0.2.aar/78a089ab8216041ccb976637b9f1cddc/AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-core:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-core-9.0.2.aar/78a089ab8216041ccb976637b9f1cddc/AndroidManifest.xml:5:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/d8f1888c3bc3ce1204a3200897d62934/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/d8f1888c3bc3ce1204a3200897d62934/AndroidManifest.xml:9:5-20
+MERGED from [com.facebook.android:facebook-places:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-places-4.28.0.aar/1fe48c4a0dbab73c48ba2f5c918059ff/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-places:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-places-4.28.0.aar/1fe48c4a0dbab73c48ba2f5c918059ff/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-applinks:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-applinks-4.28.0.aar/739918e0b6e6c2260ba48cfecbc27c96/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-applinks:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-applinks-4.28.0.aar/739918e0b6e6c2260ba48cfecbc27c96/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.28.0.aar/a343184abc052c662ff00c82ce864be1/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.28.0.aar/a343184abc052c662ff00c82ce864be1/AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:28:5-43:19
+MERGED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:28:5-43:19
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/b9b58b84633dbe08212e2e6d7e44b6f4/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/b9b58b84633dbe08212e2e6d7e44b6f4/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/35861eb6433678f05f53798d4321c3cf/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/35861eb6433678f05f53798d4321c3cf/AndroidManifest.xml:26:5-20
+MERGED from [com.google.firebase:firebase-auth-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-common-9.0.2.aar/67f3945379cb41fe1abae41c4587e149/AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.firebase:firebase-auth-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-common-9.0.2.aar/67f3945379cb41fe1abae41c4587e149/AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:30:5-59:19
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:30:5-59:19
+MERGED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:5:5-12:19
+MERGED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:5:5-12:19
+MERGED from [com.google.android.gms:play-services-tasks:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/5fcb1e21368c3d45d75f9da43cd26c78/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/5fcb1e21368c3d45d75f9da43cd26c78/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.0.2.aar/aa311c8d9af3824c16b70549fe79a131/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.0.2.aar/aa311c8d9af3824c16b70549fe79a131/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/8cb438ea127d762d2ba177a5b341ef84/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/8cb438ea127d762d2ba177a5b341ef84/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/36ff92c7d8380a2b30c3068473bcc43a/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/36ff92c7d8380a2b30c3068473bcc43a/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e1176f5cec91971df242ec0bccd9c9d6/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e1176f5cec91971df242ec0bccd9c9d6/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:customtabs:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/customtabs-25.3.1.aar/9c94cfc74102635aa74e17d102cce225/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:customtabs:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/customtabs-25.3.1.aar/9c94cfc74102635aa74e17d102cce225/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/92abc01cd54d501112b94515b443a973/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/92abc01cd54d501112b94515b443a973/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/8268a322d2cf111bfe29468c52067308/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/8268a322d2cf111bfe29468c52067308/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/4d02f0b85ba385e90d60a40015ae0a82/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/4d02f0b85ba385e90d60a40015ae0a82/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/ac99b7c417dd8b4b9f165657c5ad9042/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/ac99b7c417dd8b4b9f165657c5ad9042/AndroidManifest.xml:26:5-20
+	android:supportsRtl
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:12:9-35
+	android:label
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:11:9-41
+	android:icon
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:10:9-43
+	android:allowBackup
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:13:9-40
+activity#com.androidtutorialpoint.firebasegrocerylistapp.ListItemsActivity
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:15:9-18:59
+	android:label
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:17:13-45
+	android:theme
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:18:13-56
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:16:13-46
+activity#com.androidtutorialpoint.firebasegrocerylistapp.LoginActivity
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:19:9-25:20
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:19:19-48
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:20:13-24:29
+action#android.intent.action.MAIN
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:21:17-69
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:21:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:23:17-77
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:23:27-74
+activity#com.androidtutorialpoint.firebasegrocerylistapp.ListActivity
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:26:9-32:20
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:26:19-47
+activity#com.androidtutorialpoint.firebasegrocerylistapp.AddActivity
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:33:9-48
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:33:19-46
+activity#com.androidtutorialpoint.firebasegrocerylistapp.ExpirationActivity
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:34:9-55
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:34:19-53
+activity#com.androidtutorialpoint.firebasegrocerylistapp.SignupActivity
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:35:9-51
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:35:19-49
+meta-data#com.facebook.sdk.ApplicationId
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:39:9-41:55
+	android:value
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:41:13-52
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:40:13-58
+activity#com.facebook.FacebookActivity
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:43:9-46:48
+MERGED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:29:9-32:66
+MERGED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:29:9-32:66
+	android:label
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:46:13-45
+	android:configChanges
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:45:13-96
+	android:theme
+		ADDED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:32:13-63
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:44:13-57
+activity#com.facebook.CustomTabActivity
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:47:9-58:20
+	android:exported
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:49:13-36
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:48:13-58
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:50:13-57:29
+action#android.intent.action.VIEW
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:51:17-69
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:51:25-66
+category#android.intent.category.DEFAULT
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:53:17-76
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:53:27-73
+category#android.intent.category.BROWSABLE
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:54:17-78
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:54:27-75
+data
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:56:17-75
+	android:scheme
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:56:23-72
+activity#com.androidtutorialpoint.firebasegrocerylistapp.Profio
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:59:9-44
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:59:19-41
+activity#com.androidtutorialpoint.firebasegrocerylistapp.changePSW
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:60:9-56
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:60:19-44
+provider#android.support.v4.content.FileProvider
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:62:9-70:20
+	android:grantUriPermissions
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:66:13-47
+	android:authorities
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:64:13-67
+	android:exported
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:65:13-37
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:63:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:67:13-69:64
+	android:resource
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:69:17-51
+	android:name
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml:68:17-67
+uses-sdk
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+MERGED from [com.facebook.android:facebook-android-sdk:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.28.0.aar/2160bdda50ad6c75756994065235d7af/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-android-sdk-4.28.0.aar/2160bdda50ad6c75756994065235d7af/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:design:24.2.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/08da1391af507b3161a2ffbdce264eb0/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:24.2.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/design-24.2.0.aar/08da1391af507b3161a2ffbdce264eb0/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.android:facebook-login:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-login-4.28.0.aar/b00af5e0d07016a5925b9a7164686b85/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-login-4.28.0.aar/b00af5e0d07016a5925b9a7164686b85/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-share-4.28.0.aar/f9db350f26a95cb3cb2af653150b7b3f/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-share-4.28.0.aar/f9db350f26a95cb3cb2af653150b7b3f/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:21:5-23:78
+MERGED from [com.google.firebase:firebase-auth:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-9.0.2.aar/336c2a2e4a3b7a1b640ffaa38b59ee17/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-9.0.2.aar/336c2a2e4a3b7a1b640ffaa38b59ee17/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-core:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-core-9.0.2.aar/78a089ab8216041ccb976637b9f1cddc/AndroidManifest.xml:4:5-42
+MERGED from [com.google.firebase:firebase-core:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-core-9.0.2.aar/78a089ab8216041ccb976637b9f1cddc/AndroidManifest.xml:4:5-42
+MERGED from [com.google.firebase:firebase-database:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-database-9.0.2.aar/838aeefe6887cb2df9f1e3c5968ab118/AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-database:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-database-9.0.2.aar/838aeefe6887cb2df9f1e3c5968ab118/AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:recyclerview-v7:24.2.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-24.2.0.aar/d113271a1a4a044bc4a00156a911e0c4/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:24.2.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-24.2.0.aar/d113271a1a4a044bc4a00156a911e0c4/AndroidManifest.xml:20:5-43
+MERGED from [com.rmtheis:tess-two:8.0.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/tess-two-8.0.0.aar/63a7ca766eb338201a26e90cb28ae6ea/AndroidManifest.xml:22:5-24:41
+MERGED from [com.rmtheis:tess-two:8.0.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/tess-two-8.0.0.aar/63a7ca766eb338201a26e90cb28ae6ea/AndroidManifest.xml:22:5-24:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/d8f1888c3bc3ce1204a3200897d62934/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/d8f1888c3bc3ce1204a3200897d62934/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.android:facebook-places:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-places-4.28.0.aar/1fe48c4a0dbab73c48ba2f5c918059ff/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-places:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-places-4.28.0.aar/1fe48c4a0dbab73c48ba2f5c918059ff/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-applinks:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-applinks-4.28.0.aar/739918e0b6e6c2260ba48cfecbc27c96/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-applinks:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-applinks-4.28.0.aar/739918e0b6e6c2260ba48cfecbc27c96/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.28.0.aar/a343184abc052c662ff00c82ce864be1/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-messenger-4.28.0.aar/a343184abc052c662ff00c82ce864be1/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/b9b58b84633dbe08212e2e6d7e44b6f4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/b9b58b84633dbe08212e2e6d7e44b6f4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/35861eb6433678f05f53798d4321c3cf/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/35861eb6433678f05f53798d4321c3cf/AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-auth-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-common-9.0.2.aar/67f3945379cb41fe1abae41c4587e149/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-common-9.0.2.aar/67f3945379cb41fe1abae41c4587e149/AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-module:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-module-9.0.2.aar/722065a78dbba01f625f966e5b55f415/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-auth-module:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-auth-module-9.0.2.aar/722065a78dbba01f625f966e5b55f415/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-database-connection:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-9.0.2.aar/9fee534b6cbf067df72249b5555555b5/AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-database-connection:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-database-connection-9.0.2.aar/9fee534b6cbf067df72249b5555555b5/AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/5fcb1e21368c3d45d75f9da43cd26c78/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-tasks-9.0.2.aar/5fcb1e21368c3d45d75f9da43cd26c78/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.0.2.aar/aa311c8d9af3824c16b70549fe79a131/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.0.2.aar/aa311c8d9af3824c16b70549fe79a131/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/8cb438ea127d762d2ba177a5b341ef84/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/8cb438ea127d762d2ba177a5b341ef84/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/36ff92c7d8380a2b30c3068473bcc43a/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/36ff92c7d8380a2b30c3068473bcc43a/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e1176f5cec91971df242ec0bccd9c9d6/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e1176f5cec91971df242ec0bccd9c9d6/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:customtabs:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/customtabs-25.3.1.aar/9c94cfc74102635aa74e17d102cce225/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/customtabs-25.3.1.aar/9c94cfc74102635aa74e17d102cce225/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/92abc01cd54d501112b94515b443a973/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/92abc01cd54d501112b94515b443a973/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/8268a322d2cf111bfe29468c52067308/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/8268a322d2cf111bfe29468c52067308/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/4d02f0b85ba385e90d60a40015ae0a82/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/4d02f0b85ba385e90d60a40015ae0a82/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/ac99b7c417dd8b4b9f165657c5ad9042/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/ac99b7c417dd8b4b9f165657c5ad9042/AndroidManifest.xml:20:5-43
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+		ADDED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/yiranpan/Downloads/cs591/AndroidFinalProject/fridge-manager/FireBaseGroceryListApp copy 2/app/src/main/AndroidManifest.xml
+activity#com.facebook.CustomTabMainActivity
+ADDED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:33:9-71
+	android:name
+		ADDED from [com.facebook.android:facebook-common:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-common-4.28.0.aar/a541818233eb06f55956929568906f1f/AndroidManifest.xml:33:19-68
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/b9b58b84633dbe08212e2e6d7e44b6f4/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/b9b58b84633dbe08212e2e6d7e44b6f4/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/35861eb6433678f05f53798d4321c3cf/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/35861eb6433678f05f53798d4321c3cf/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/8cb438ea127d762d2ba177a5b341ef84/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/8cb438ea127d762d2ba177a5b341ef84/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/36ff92c7d8380a2b30c3068473bcc43a/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/36ff92c7d8380a2b30c3068473bcc43a/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e1176f5cec91971df242ec0bccd9c9d6/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/e1176f5cec91971df242ec0bccd9c9d6/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:customtabs:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/customtabs-25.3.1.aar/9c94cfc74102635aa74e17d102cce225/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:customtabs:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/customtabs-25.3.1.aar/9c94cfc74102635aa74e17d102cce225/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/92abc01cd54d501112b94515b443a973/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/92abc01cd54d501112b94515b443a973/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/8268a322d2cf111bfe29468c52067308/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/8268a322d2cf111bfe29468c52067308/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/4d02f0b85ba385e90d60a40015ae0a82/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/4d02f0b85ba385e90d60a40015ae0a82/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/ac99b7c417dd8b4b9f165657c5ad9042/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/ac99b7c417dd8b4b9f165657c5ad9042/AndroidManifest.xml:22:5-24:34
+	android:value
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:appcompat-v7:25.3.1] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/c9c9b8aa98f58a47fa011354e8af5b8c/AndroidManifest.xml:26:9-47
+provider#com.facebook.internal.FacebookInitProvider
+ADDED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:39:9-42:40
+	android:authorities
+		ADDED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:41:13-72
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:42:13-37
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.28.0] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/facebook-core-4.28.0.aar/328a7c2bb280914946460770bb157665/AndroidManifest.xml:40:13-70
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:20:5-79
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:20:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:22:22-76
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:22:5-68
+MERGED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:22:5-68
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:24:22-65
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:28:7-34:18
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:28:7-34:18
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:28:7-34:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:30:11-33
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:29:11-83
+intent-filter#com.google.android.gms.measurement.UPLOAD
+ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:31:9-33:25
+action#com.google.android.gms.measurement.UPLOAD
+ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:32:11-77
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:32:19-75
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:36:7-39:37
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:36:7-39:37
+MERGED from [com.google.firebase:firebase-analytics-impl:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-impl-9.0.2.aar/313a18103fd94b52fb617f642d5d65af/AndroidManifest.xml:36:7-39:37
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:38:11-33
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:39:11-35
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-analytics-9.0.2.aar/3273f7250127ea4ed88a6bce11bd6230/AndroidManifest.xml:37:11-82
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-base-9.0.2.aar/878767e0b31bbb8a664828c7cb700f15/AndroidManifest.xml:20:19-85
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:23:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:23:22-79
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:25:5-26:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:26:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:25:17-71
+permission#com.androidtutorialpoint.firebasegrocerylistapp.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:25:5-26:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:26:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:25:17-71
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:28:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:28:22-76
+uses-permission#com.androidtutorialpoint.firebasegrocerylistapp.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:28:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:28:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:32:9-41:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:34:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:35:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:33:13-78
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:36:13-40:29
+intent-filter#com.androidtutorialpoint.firebasegrocerylistapp+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:36:13-40:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:37:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:37:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:38:17-86
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:38:25-83
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:39:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:39:27-58
+category#com.androidtutorialpoint.firebasegrocerylistapp
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:39:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:39:27-58
+receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:45:9-47:40
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:46:13-86
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:51:9-57:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:53:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:52:13-77
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:54:13-56:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:54:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:55:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-iid-9.0.2.aar/ebfd249a0795c2ae43212d049fb84c70/AndroidManifest.xml:55:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:7:9-11:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:8:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:10:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:11:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/firebase-common-9.0.2.aar/d18626927b8d16c523d530c7616c1c3b/AndroidManifest.xml:9:13-58
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.0.2.aar/aa311c8d9af3824c16b70549fe79a131/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.0.2.aar/aa311c8d9af3824c16b70549fe79a131/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:9.0.2] /Users/yiranpan/.gradle/caches/transforms-1/files-1.1/play-services-basement-9.0.2.aar/aa311c8d9af3824c16b70549fe79a131/AndroidManifest.xml:22:13-58
