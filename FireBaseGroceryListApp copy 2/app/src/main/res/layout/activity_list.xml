@@ -39,9 +39,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView"
-        android:layout_alignEnd="@+id/button"
+
         android:layout_marginBottom="28dp"
-        android:layout_marginEnd="30dp"
+
         android:gravity="left"
         android:paddingLeft="30dp"
         android:text="Oct.14th.2017"
@@ -76,17 +76,34 @@
         android:divider="@drawable/line2"
         ></ListView>
 
-    <Button
-        android:id="@+id/submit"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="80dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/submit_button"
-        android:text="Submit"
-        android:textColor="#ffffff" />
+        android:layout_alignParentBottom="true"
+        >
+
+        <Button
+            android:id="@+id/Submit"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/submit_button"
+            android:text="Submit"
+            android:textColor="#ffffff" />
+        <Button
+            android:id="@+id/add"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/submit_button"
+            android:text="Add"
+            android:textColor="#ffffff"
+            />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"

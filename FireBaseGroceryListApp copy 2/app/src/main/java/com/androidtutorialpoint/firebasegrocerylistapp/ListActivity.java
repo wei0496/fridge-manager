@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -28,6 +29,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.androidtutorialpoint.firebasegrocerylistapp.Item;
 import com.google.firebase.database.ChildEventListener;
@@ -75,7 +77,7 @@ public class ListActivity extends AppCompatActivity {
     Map<String, Boolean> inBG;
     Map<String, ListItem> find;
     Button submit;
-
+    Button add;
     DatabaseReference mBackDB;
     /********** used for camera and OCR --start *************/
     String[] ocrResult;
@@ -382,7 +384,7 @@ public class ListActivity extends AppCompatActivity {
         addToView(ocrResult);
 
         // submit new list to firebase
-        submit = (Button) findViewById(R.id.submit);
+        submit = (Button) findViewById(R.id.Submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -414,7 +416,16 @@ public class ListActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-
+        if(resultCode==120){
+            ListItem item = new ListItem();
+            item.setListItemText(data.getStringExtra("name"));
+            item.setExpirationDate( data.getStringExtra("date"));
+            item.setTag(data.getStringExtra("tag1"));
+            item.setReOrFree(data.getStringExtra("tag2").equals(tag2s[0]));
+            list.add(item);
+            adapter.notifyDataSetChanged();
+            return;
+        }
         if(resultCode != RESULT_CANCELED){
 
             /*********** used for OCR and Camera --start **************/
@@ -463,6 +474,32 @@ public class ListActivity extends AppCompatActivity {
                 }
             });
         }
+        add  = (Button) findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListActivity.this,AddActivity.class);
+                startActivityForResult(intent,200);
+            }
+        });
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                new AlertDialog.Builder(ListActivity.this)
+                        .setMessage("Do you want to remove this shopping?")
+                        .setNegativeButton("Canel",null)
+                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                list.remove(position);
+                                adapter.notifyDataSetChanged();
+                                Toast.makeText(ListActivity.this,"Remove Success!",Toast.LENGTH_SHORT).show();
+                            }
+                        }).show();
+
+                return true;
+            }
+        });
     }
 
     private void initData() {
@@ -509,16 +546,18 @@ public class ListActivity extends AppCompatActivity {
             TextView id = (TextView) convertView.findViewById(R.id.id);
             id.setText(Integer.toString(position));
 
-            EditText name = (EditText) convertView.findViewById(R.id.name);
+            TextView name = (TextView) convertView.findViewById(R.id.name);
             name.setText(mylist.get(position).getListItemText());
-
-//            name.setOnClickListener(new View.OnClickListener() {
-//                String old;
-//                @Override
-//                public void onClick(View v) {
-//                    old =
-//                }
-//            });
+            name.setTag(position);
+            name.setOnClickListener(new View.OnClickListener() {
+                String old;
+                @Override
+                public void onClick(View v) {
+                    int pos = (int) v.getTag();
+                    showNameEditDialog(pos);
+                }
+            });
+            /*
             name.addTextChangedListener(new TextWatcher() {
                 String old;
                 @Override
@@ -541,7 +580,7 @@ public class ListActivity extends AppCompatActivity {
                     }
                 }
             });
-
+*/
 
             TextView tag1 = (TextView) convertView.findViewById(R.id.tag1);
             String tag1str = "";
@@ -607,11 +646,26 @@ public class ListActivity extends AppCompatActivity {
                     ShowTag2Dialog(pos);
                 }
             });
+
             return convertView;
         }
 
     }
+    private void showNameEditDialog(final int pos){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ListActivity.this);
+        final EditText edit = new EditText(ListActivity.this);
+        edit.setText(list.get(pos).getName());
+        builder.setTitle("Please entry").setIcon(android.R.drawable.ic_dialog_info).setView(edit)
+                .setNegativeButton("Cancel", null);
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
+            public void onClick(DialogInterface dialog, int which) {
+                list.get(pos).setListItemText(edit.getText().toString()) ;
+                adapter.notifyDataSetChanged();
+            }
+        });
+        builder.show();
+    }
     private void ShowTag1Dialog(final int pos) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
