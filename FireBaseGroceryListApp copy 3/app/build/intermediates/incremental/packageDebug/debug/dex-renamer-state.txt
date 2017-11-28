@@ -1,4 +1,0 @@
-#Tue Nov 28 11:17:53 EST 2017
-base.0=/Users/yiranpan/Downloads/FireBaseGroceryListApp copy 2/app/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex
