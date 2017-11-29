@@ -1,12 +1,5 @@
 <resources>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-
     <style name="ButtonTheme" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -16,6 +9,10 @@
         <item name="android:fontFamily">sans-serif-smallcaps</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 
     <style name="InputStyle" parent="@android:style/TextAppearance.Medium">
         <item name="android:layout_width">match_parent</item>

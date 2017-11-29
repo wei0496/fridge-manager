@@ -14,7 +14,7 @@ public class NotificationActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.notification_activity);
-        Intent intent = new Intent(NotificationActivity.this, ListItemsActivity.class);
+        Intent intent = new Intent(NotificationActivity.this, MenuActivity.class);
         startActivity(intent);
     }
 }

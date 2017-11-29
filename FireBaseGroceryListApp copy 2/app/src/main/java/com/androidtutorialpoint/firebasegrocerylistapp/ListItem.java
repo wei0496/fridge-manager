@@ -25,8 +25,6 @@ public class ListItem {
         this.Tag = bgItem.type_tag;
         SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         this.listItemCreationDate = sdf.format(new Date());
-
-
     }
 
     public String getListItemText() {

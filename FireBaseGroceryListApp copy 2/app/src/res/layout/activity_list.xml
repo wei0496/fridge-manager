@@ -63,34 +63,17 @@
         android:dividerHeight="1dp"
         android:divider="@drawable/line2"
         ></ListView>
-    <LinearLayout
+    <Button
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@drawable/submit_button"
+        android:text="Submit"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
         android:layout_marginBottom="80dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_alignParentBottom="true"
-    >
-        <Button
-            android:id="@+id/sumbit"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/submit_button"
-            android:text="Submit"
-            android:textColor="#ffffff"
-        />
-        <Button
-            android:id="@+id/add"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/submit_button"
-            android:text="Add"
-            android:textColor="#ffffff"
-        />
-    </LinearLayout>
+        android:id="@+id/button" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"

@@ -2,6 +2,7 @@ package com.androidtutorialpoint.firebasegrocerylistapp;
 
 import com.google.firebase.database.Exclude;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,7 +10,7 @@ import java.util.Map;
  * Created by Cornfieldfox on 11/26/17.
  */
 
-public class BGItem {
+public class BGItem implements Serializable {
     int expiration_duration;
     String id;
     String type_tag;
@@ -20,6 +21,7 @@ public class BGItem {
         this.type_tag = type_tag;
         this.id = id;
     }
+
     BGItem(ListItem listItem)
     {
 
@@ -28,9 +30,11 @@ public class BGItem {
         this.type_tag = listItem.getTag();
 
     }
+
     BGItem()
     {
     }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -39,4 +43,19 @@ public class BGItem {
         result.put("type_tag", type_tag);
         return result;
     }
+
+    // getter
+
+    public int getExpirationDate() {
+        return expiration_duration;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type_tag;
+    }
+
 }

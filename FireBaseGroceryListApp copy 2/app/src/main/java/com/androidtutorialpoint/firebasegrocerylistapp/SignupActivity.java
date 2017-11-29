@@ -97,7 +97,7 @@ public class SignupActivity extends AppCompatActivity {
                             Log.d(TAG,"Authentication failed." + task.getException());
 
                         } else {
-                            startActivity(new Intent(SignupActivity.this, ListItemsActivity.class));
+                            startActivity(new Intent(SignupActivity.this, MenuActivity.class));
                             finish();
                         }
                     }
