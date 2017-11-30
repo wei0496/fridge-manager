@@ -1,6 +1,7 @@
 package com.androidtutorialpoint.firebasegrocerylistapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +9,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 12118 on 2017/11/13.
@@ -81,4 +94,55 @@ public class CustomAdapter extends BaseAdapter {
 
         return row;
     }
+
+    //for delete from my refrigerator
+    public boolean deleteItem(final int position)
+    {
+        Log.w("delete item",Integer.toString(position));
+        final ListItem delItem = list.get(position);
+
+        //database manipulate:
+        // path to this user's all items
+
+        String Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("listItem").child(Uid);
+        Log.w("dbref",dbref.toString());
+        dbref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // key waiting to be delete.
+                List<String> keyList = new ArrayList<>();
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    Map<String, ListItem> listMap = new HashMap<>();
+                    ListItem childItem = ds.getValue(ListItem.class);
+                    if (childItem.getName() == delItem.getName() && childItem.getExpirationDate() == delItem.getExpirationDate()) {
+                        keyList.add(ds.getKey());
+                    }
+                }
+                Log.w("length:",Integer.toString(keyList.size()));
+                for(String key:keyList)
+                {
+                    DatabaseReference temp = dbref.child(key);
+                    temp.removeValue();
+                }
+
+//                HashMap<String,Object> updatemap = new HashMap<>();
+//                updatemap.put(Uid,updateList);
+//                dbref.updateChildren(updatemap);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        //update view
+        list.remove(position);
+        notifyDataSetChanged();
+        Toast.makeText(context,"delete success",Toast.LENGTH_SHORT).show();
+        return true;
+    }
+
 }

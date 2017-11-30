@@ -1,5 +1,7 @@
 package com.androidtutorialpoint.firebasegrocerylistapp;
 
+import android.util.Log;
+
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
@@ -23,8 +25,9 @@ public class ListItem {
         this.listItemText = bgItem.id;
         this.ExpirationDate = Integer.toString(bgItem.expiration_duration);
         this.Tag = bgItem.type_tag;
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         this.listItemCreationDate = sdf.format(new Date());
+        Log.w("date::",this.listItemCreationDate);
     }
 
     public String getListItemText() {
@@ -117,12 +120,12 @@ public class ListItem {
     }
     public ListItem() {
         // Default constructor required for calls to DataSnapshot.getValue(ListItem.class)
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
         this.listItemCreationDate = sdf.format(new Date());
     }
 
     public ListItem(String listItemText, String Expiration, String Tag) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
         this.listItemCreationDate = sdf.format(new Date());
 
         this.listItemText = listItemText;
@@ -130,7 +133,7 @@ public class ListItem {
         this.Tag = Tag;
     }
     public ListItem(String listItemText, String Expiration, String Tag, Boolean reOrFree) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy");
         this.listItemCreationDate = sdf.format(new Date());
 
         this.listItemText = listItemText;

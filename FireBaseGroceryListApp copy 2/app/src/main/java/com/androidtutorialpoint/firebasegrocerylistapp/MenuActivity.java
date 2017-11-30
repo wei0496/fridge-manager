@@ -27,6 +27,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -83,7 +84,9 @@ public class MenuActivity extends AppCompatActivity {
     DatabaseReference mDB;
     DatabaseReference mListItemRef;
     private ListView mFrigItemList;     //Reference to the listview GUI component
-    private ListAdapter frigAdapter;
+//    private ListAdapter frigAdapter;
+    private CustomAdapter frigAdapter;
+
     private LinearLayout frig_list;
     private LinearLayout shopping_list;
     private LinearLayout accoount_list;
@@ -290,9 +293,17 @@ public class MenuActivity extends AppCompatActivity {
         // database related operations
         Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         mDB= FirebaseDatabase.getInstance().getReference();
+
         mListItemRef = mDB.child("listItem").child(Uid);
         updateUI();
 
+        mFrigItemList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                frigAdapter.deleteItem(i);
+                return false;
+            }
+        });
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -481,6 +492,15 @@ public class MenuActivity extends AppCompatActivity {
         item.setReOrFree(true);
         item.setExpirationDate("7");
         list.add(item);
+
+        ListItem item2 = new ListItem();
+
+        item2.setListItemText("Pear");
+        item2.setExpirationDate("7");
+        item2.setTag(tag1s[1]);
+        item2.setReOrFree(true);
+        item2.setExpirationDate("7");
+        list.add(item2);
     }
 
     class MyAdapter extends BaseAdapter {
