@@ -55,6 +55,7 @@ public class ExpirationActivity extends Activity {
                         ListItem listItem = child.getValue(ListItem.class);
                         String ExpirationDuration = listItem.getExpirationDate();
                         String CreationDate = listItem.getListItemCreationDate();
+                        Log.e(TAG, CreationDate);
                         DateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                         try{Date date = formatter.parse(CreationDate);
                             cal.setTime(date);}
@@ -73,10 +74,24 @@ public class ExpirationActivity extends Activity {
 
                             PendingIntent broadcast = PendingIntent.getBroadcast(ExpirationActivity.this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+                            // Set the alarm to start at 10:00 AM
+                            // change the time below to set a different start time
+                            Calendar calendar = Calendar.getInstance();
+                            calendar.setTimeInMillis(System.currentTimeMillis());
+                            calendar.set(Calendar.HOUR_OF_DAY, 10);
+                            calendar.set(Calendar.MINUTE, 49);
+                            calendar.set(Calendar.SECOND, 0);
+
+                            // The below code is for demo, triggered every 30 seconds
+                            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 3000, broadcast);
+
+                            // comment the above code and uncomment the below code for actual use, triggered every 24 hours
+                            //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 86400000, broadcast);
+
                             //Calendar cal1 = Calendar.getInstance();
                             //For demo we set this to be called every 15 seconds
-                            cal1.add(Calendar.SECOND, 15);
-                            alarmManager.set(AlarmManager.RTC_WAKEUP, cal1.getTimeInMillis(), broadcast);
+                            //cal1.add(Calendar.SECOND, 15);
+                            //alarmManager.set(AlarmManager.RTC_WAKEUP, cal1.getTimeInMillis(), broadcast);
                             Log.e(TAG, "Expires");
                             break;
                         }
@@ -90,23 +105,6 @@ public class ExpirationActivity extends Activity {
         }
 
         catch (Exception e){}
-
-        /*
-        if (flag) {
-            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-            Intent notificationIntent = new Intent("android.media.action.DISPLAY_NOTIFICATION");
-            notificationIntent.addCategory("android.intent.category.DEFAULT");
-
-            PendingIntent broadcast = PendingIntent.getBroadcast(this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-            //Calendar cal1 = Calendar.getInstance();
-            //For demo we set this to be called every 15 seconds
-            cal1.add(Calendar.SECOND, 60);
-            alarmManager.set(AlarmManager.RTC_WAKEUP, cal1.getTimeInMillis(), broadcast);
-            Log.e(TAG, "Alarm sent!");
-        }
-        */
         Intent intent = new Intent(ExpirationActivity.this, LoginActivity.class);
         startActivity(intent);
     }
