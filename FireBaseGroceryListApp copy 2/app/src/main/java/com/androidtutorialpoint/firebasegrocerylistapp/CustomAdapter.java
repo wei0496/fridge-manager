@@ -96,7 +96,7 @@ public class CustomAdapter extends BaseAdapter {
     }
 
     //for delete from my refrigerator
-    public boolean deleteItem(final int position)
+    public ListItem deleteItem(final int position)
     {
         Log.w("delete item",Integer.toString(position));
         final ListItem delItem = list.get(position);
@@ -142,7 +142,21 @@ public class CustomAdapter extends BaseAdapter {
         list.remove(position);
         notifyDataSetChanged();
         Toast.makeText(context,"delete success",Toast.LENGTH_SHORT).show();
-        return true;
+        return delItem;
     }
+
+    public Boolean deleteItem(ListItem delItem)
+    {
+        if(list.contains(delItem))
+        {
+            list.remove(delItem);
+            notifyDataSetInvalidated();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }

@@ -8,4 +8,5 @@
 
     <color name="text_color">#CCCCCC</color>
     <color name="blue_color">#00c8dd</color>
+    <color name="black">#000000</color>
 </resources>
