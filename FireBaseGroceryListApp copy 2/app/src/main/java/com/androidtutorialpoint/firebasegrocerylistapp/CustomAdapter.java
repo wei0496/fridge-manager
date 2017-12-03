@@ -34,6 +34,7 @@ public class CustomAdapter extends BaseAdapter {
     private ArrayList<Integer> icons;   // icons for the item
     private int expiration_value[];  // expiration duration for the item
     private ArrayList<ListItem> list;
+    private ArrayList<ListItem> listAll;
 
     Context context;
 
@@ -49,8 +50,9 @@ public class CustomAdapter extends BaseAdapter {
         icons.add(R.mipmap.milk_icon);
 
         expiration_value = baseContext.getResources().getIntArray(R.array.expiration_duration);
+        list = new ArrayList<>();
+        list.addAll(mListItems);
 
-        list = mListItems;
     }
 
     @Override
@@ -139,7 +141,9 @@ public class CustomAdapter extends BaseAdapter {
         });
 
         //update view
+        listAll.remove(list.get(position));
         list.remove(position);
+
         notifyDataSetChanged();
         Toast.makeText(context,"delete success",Toast.LENGTH_SHORT).show();
         return delItem;
@@ -149,6 +153,7 @@ public class CustomAdapter extends BaseAdapter {
     {
         if(list.contains(delItem))
         {
+            listAll.remove(delItem);
             list.remove(delItem);
             notifyDataSetInvalidated();
             return true;
@@ -157,6 +162,35 @@ public class CustomAdapter extends BaseAdapter {
             return false;
         }
     }
+    public void filter(ArrayList<String> filerList)
+    {
+        if(filerList.size()==0)
+        {
+            list.addAll(listAll);
+            notifyDataSetChanged();
+            return;
+        }
+        else
+        {
+            Log.w("listAllsize::",Integer.toString(listAll.size()));
+            list.clear();
 
+            for(ListItem listItem:listAll)
+            {
+                if(filerList.contains(listItem.getTag()))
+                {
+                    list.add(listItem);
+                }
+            }
+            notifyDataSetChanged();
+            return;
+        }
+
+    }
+
+    public void setAll(ArrayList<ListItem> all)
+    {
+        listAll = all;
+    }
 
 }

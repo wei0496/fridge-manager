@@ -36,6 +36,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -70,6 +71,7 @@ import com.googlecode.leptonica.android.Skew;
 import com.googlecode.leptonica.android.WriteFile;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
+import java.io.CharConversionException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -81,12 +83,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
     /********** Home Page related *************/
     private final String TAG = "MenuActivity";
@@ -101,7 +104,7 @@ public class MenuActivity extends AppCompatActivity {
     private CustomAdapter freeAdapter;
 
     private TabHost tabHost;
-
+    private spAdapter sp;
 
 
     private LinearLayout frig_list;
@@ -190,20 +193,21 @@ public class MenuActivity extends AppCompatActivity {
         accoount_list = (LinearLayout)findViewById(R.id.account);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        myListItems = new ArrayList<>();
+
         mFrigItemList = (ListView)findViewById(R.id.frig_item_list);
+        myListItems = new ArrayList<>();
         frigAdapter = new CustomAdapter(this.getBaseContext(), myListItems);
         mFrigItemList.setAdapter(frigAdapter);
 
         refrigList=(ListView)findViewById(R.id.refriList);
         refrigItems = new ArrayList<>();
         refrigAdapter = new CustomAdapter(this.getBaseContext(), refrigItems);
-
+        refrigList.setAdapter(refrigAdapter);
 
         freezerList = (ListView)findViewById(R.id.freezerList);
         freezerItems = new ArrayList<>();
         freeAdapter = new CustomAdapter(this.getBaseContext(),freezerItems);
-
+        freezerList.setAdapter(freeAdapter);
 
         tabHost = (TabHost) findViewById(R.id.regriTab);
         tabHost.setup();
@@ -345,19 +349,25 @@ public class MenuActivity extends AppCompatActivity {
         mListItemRef = mDB.child("listItem").child(Uid);
         updateUI();
 
-        Spinner filter =  (Spinner) findViewById(R.id.filterSpn) ;
+        final Spinner filter =  (Spinner) findViewById(R.id.filterSpn) ;
 
-        ArrayList<CheckBox> cbList = new ArrayList<>();
+        ArrayList<CheckBox> tagList = new ArrayList<>();
+//        CheckBox start = new CheckBox(this);
+//        start.setText("start");
+//        tagList.add(start);
+//
         for(String str: tag1s)
         {
             CheckBox cb = new CheckBox(this);
             cb.setText(str);
-            cbList.add(cb);
+            tagList.add(cb);
         }
-        ArrayAdapter<CheckBox> spAdapter = new spAdapter(this,0,cbList);
-//        ArrayAdapter<CheckBox> spAdapter = new ArrayAdapter<CheckBox>(this, R.layout.support_simple_spinner_dropdown_item,cbList);
-        filter.setAdapter(spAdapter);
+        sp = new spAdapter(this,0,tagList,this);
 
+
+
+
+        filter.setAdapter(sp);
 
         mFrigItemList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -365,6 +375,7 @@ public class MenuActivity extends AppCompatActivity {
                 ListItem delItem = frigAdapter.deleteItem(i);
                 refrigAdapter.deleteItem(delItem);
                 freeAdapter.deleteItem(delItem);
+
                 return true;
             }
         });
@@ -395,6 +406,10 @@ public class MenuActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Log.d(TAG+"Added",dataSnapshot.getValue(ListItem.class).toString());
                 fetchData(dataSnapshot);
+                frigAdapter.setAll(myListItems);
+                refrigAdapter.setAll(refrigItems);
+                freeAdapter.setAll(freezerItems);
+
             }
 
             @Override
@@ -418,6 +433,13 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+// for filter
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -454,9 +476,9 @@ public class MenuActivity extends AppCompatActivity {
     private void fetchData(DataSnapshot dataSnapshot) {
         ListItem listItem=dataSnapshot.getValue(ListItem.class);
         myListItems.add(listItem);
+
         if (Boolean.parseBoolean(listItem.getReOrFree()))
         {
-            Log.w("update list",listItem.getReOrFree());
             refrigItems.add(listItem);
         }
         else
@@ -595,6 +617,13 @@ public class MenuActivity extends AppCompatActivity {
         item2.setReOrFree(true);
         item2.setExpirationDate("7");
         list.add(item2);
+    }
+
+    @Override
+    public void FilterChanged(ArrayList<String> filList) {
+        frigAdapter.filter(filList);
+        refrigAdapter.filter(filList);
+        freeAdapter.filter(filList);
     }
 
     class MyAdapter extends BaseAdapter {
