@@ -974,27 +974,43 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                 Log.w("@::", Boolean.toString(temp[i].contains("@")));
 //                Log.w("temp i-1::",temp[i-1]);
                 if(temp[i].contains("@")) {
-                    Log.w("temp2 i-1::",temp[i-1]);
-                    resList.add(temp[i-1]);
+
+                    String tempStr = replaceChar(temp[i-1]);
+
+                    if(tempStr.trim().isEmpty())
+                        continue;
+
+                    resList.add(tempStr);
+
+//                    resList.add(temp[i-1]);
                 }
                 else {
 
                     String[] group = temp[i].split(" ");
-                    if(group.length==0||group[0]=="==>")
+                    if(group.length==0||group[0]=="==>"||group[0]=="=>")
                     {
                         continue;
                     }
-                    if(group.length ==0||group[0]=="==>")
-                        continue;
+
                     int end = group.length-2;
                     if(group.length>3 && group[group.length-3].matches("\\d*"))
                         end = group.length-3;
                     StringBuilder sb =new StringBuilder();
                     for(int j = 0; j < end;j++)
                     {
-                        sb.append(group[j]);
+                        //delete
+                        String tempStr = replaceChar(group[j]);
+
+                        if(tempStr.trim().isEmpty())
+                            continue;
+
+                        sb.append(tempStr);
                         sb.append(" ");
                     }
+
+
+
+
                     resList.add(sb.toString());
                     Log.w("split::",sb.toString());
 
@@ -1013,7 +1029,16 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                 Matcher m = Pattern.compile("(?<=[0-9]\\b)(.*)\\b(?=FN)").matcher(temp[i]);
 
                 if(m.find())
-                    resList.add(m.group(0));
+                {
+//                    resList.add(m.group(0));
+                    String tempStr = replaceChar(m.group(0));
+
+                    if(tempStr.trim().isEmpty())
+                        continue;
+
+                    resList.add(tempStr);
+
+                }
 
             }
 
@@ -1021,7 +1046,20 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
         return resList.toArray(new String[resList.size()]);
     }
-
+    private String replaceChar(String str)
+    {
+        StringBuilder sb = new StringBuilder();
+        for(char c:str.toCharArray())
+        {
+            if(c=='$'||c=='#'||c=='['||c==']')
+                continue;
+            sb.append(c);
+        }
+        if(sb.length()!=0)
+            return sb.toString();
+        else
+            return "";
+    }
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
