@@ -1036,7 +1036,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     if(tempStr.trim().isEmpty())
                         continue;
 
-                    resList.add(tempStr);
+                    resList.add(tempStr.trim());
 
                 }
 
