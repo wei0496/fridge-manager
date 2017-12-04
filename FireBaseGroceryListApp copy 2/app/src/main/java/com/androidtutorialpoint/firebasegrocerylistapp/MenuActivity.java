@@ -545,30 +545,30 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        switch(id){
-//            case R.id.action_delete_all:
-//                deleteAllListItems();
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//        switch(id){
+////            case R.id.action_delete_all:
+////                deleteAllListItems();
+////                break;
+//            case R.id.action_logout:
+//                FirebaseAuth.getInstance().signOut();
+//                startActivity(new Intent(this, LoginActivity.class));
 //                break;
-            case R.id.action_logout:
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(this, LoginActivity.class));
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
 //    public void deleteAllListItems(){
 //        FirebaseDatabase.getInstance().getReference().child("listItem").removeValue();
