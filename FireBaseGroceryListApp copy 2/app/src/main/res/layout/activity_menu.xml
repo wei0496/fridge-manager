@@ -15,7 +15,7 @@
         android:layout_marginBottom="50dp"
         android:layout_marginTop="50dp"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         tools:layout_editor_absoluteX="67dp"
         tools:layout_editor_absoluteY="16dp">
 
@@ -81,7 +81,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="FOOD RECEIPT"
+                    android:text="Grocery List"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -107,11 +107,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
                 android:layout_marginBottom="80dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_alignParentBottom="true"
-                >
+                android:layout_marginRight="20dp">
+
                 <Button
                     android:id="@+id/Sumbit"
                     android:layout_width="0dp"
@@ -119,18 +119,17 @@
                     android:layout_weight="1"
                     android:background="@drawable/submit_button"
                     android:text="Submit"
-                    android:textColor="#ffffff"
-                    />
+                    android:textColor="#ffffff" />
+
                 <Button
                     android:id="@+id/add"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_weight="1"
                     android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
                     android:background="@drawable/submit_button"
                     android:text="Add"
-                    android:textColor="#ffffff"
-                    />
+                    android:textColor="#ffffff" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -168,7 +167,7 @@
                 android:layout_marginBottom="40dp"
                 android:gravity="center"
                 android:text="TextView"
-                android:textColor="@color/com_facebook_button_background_color_pressed"
+                android:textColor="@color/com_facebook_button_background_color_focused"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -188,7 +187,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@mipmap/submit_button"
-                android:text="password" />
+                android:text="change password" />
 
             <Button
                 android:id="@+id/logOut"
@@ -228,13 +227,19 @@
 
             <Spinner
                 android:id="@+id/filterSpn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@drawable/com_facebook_tooltip_black_bottomnub"
+                android:gravity="center"
+                android:popupBackground="@android:color/holo_blue_dark"
+                android:visibility="visible" />
 
             <TabHost
                 android:id="@+id/regriTab"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -244,12 +249,20 @@
                     <TabWidget
                         android:id="@android:id/tabs"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:textAlignment="textStart"
+                        android:visibility="visible" />
 
                     <FrameLayout
                         android:id="@android:id/tabcontent"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="100dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:background="@android:color/background_light">
 
                         <LinearLayout
                             android:id="@+id/All"
@@ -261,13 +274,7 @@
                                 android:id="@+id/frig_item_list"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_marginBottom="100dp"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginRight="30dp"
-                                android:layout_marginTop="50dp"
-                                android:visibility="visible">
-
-                            </ListView>
+                                android:visibility="visible"></ListView>
                         </LinearLayout>
 
                         <LinearLayout
@@ -280,11 +287,7 @@
                             <ListView
                                 android:id="@+id/refriList"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="100dp"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginRight="30dp"
-                                android:layout_marginTop="50dp" />
+                                android:layout_height="match_parent" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -296,11 +299,7 @@
                             <ListView
                                 android:id="@+id/freezerList"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginBottom="100dp"
-                                android:layout_marginLeft="30dp"
-                                android:layout_marginRight="30dp"
-                                android:layout_marginTop="50dp" />
+                                android:layout_height="match_parent" />
                         </LinearLayout>
                     </FrameLayout>
                 </LinearLayout>

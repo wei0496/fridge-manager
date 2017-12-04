@@ -30,4 +30,5 @@
         <item name="colorControlNormal">@android:color/holo_red_dark</item>
         <item name="colorControlActivated">@android:color/holo_purple</item>
     </style>
+
 </resources>

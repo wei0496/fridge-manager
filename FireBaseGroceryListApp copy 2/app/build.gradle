@@ -38,6 +38,7 @@ dependencies {
     compile 'com.google.firebase:firebase-database:9.0.2'
     compile 'com.android.support:recyclerview-v7:25.4.0'
     compile 'com.rmtheis:tess-two:8.0.0'
+    compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
 

@@ -108,7 +108,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     private TabHost tabHost;
     private spAdapter sp;
 
-
     private LinearLayout frig_list;
     private LinearLayout shopping_list;
     private LinearLayout accoount_list;
@@ -350,23 +349,25 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
         /********** Menu page related ***********/
 
-        //filter:
         // draw layout::
-        TabHost.TabSpec spec1 = tabHost.newTabSpec("AllItem");
-        spec1.setContent(R.id.All);
-        spec1.setIndicator("All Items");
-        tabHost.addTab(spec1);
+        setupTab();
 
-        TabHost.TabSpec spec2 = tabHost.newTabSpec("Refrigerator");
-        spec2.setContent(R.id.refri);
-        spec2.setIndicator("Refrigerator list");
-        tabHost.addTab(spec2);
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
 
-        TabHost.TabSpec spec3 = tabHost.newTabSpec("Freezer");
-        spec3.setContent(R.id.freezer);
-        spec3.setIndicator("Freezer List");
-        tabHost.addTab(spec3);
+            @Override
+            public void onTabChanged(String tabId) {
 
+                for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
+                    tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#4C7AC6")); // unselected
+                    TextView tv = (TextView) tabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title); //Unselected Tabs
+                    tv.setTextColor(Color.parseColor("#ffffff"));
+                }
+
+                tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#1EA7E7")); // selected
+                TextView tv = (TextView) tabHost.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab
+                tv.setTextColor(Color.parseColor("#ffffff"));
+            }
+        });
 
         // database related operations
         Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -460,12 +461,23 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         });
     }
 
+    // custom tab
+    private void setupTab() {
+        TabHost.TabSpec spec1 = tabHost.newTabSpec("AllItem");
+        spec1.setContent(R.id.All);
+        spec1.setIndicator("All Items");
+        tabHost.addTab(spec1);
 
+        TabHost.TabSpec spec2 = tabHost.newTabSpec("Refrigerator");
+        spec2.setContent(R.id.refri);
+        spec2.setIndicator("Fridge");
+        tabHost.addTab(spec2);
 
-
-// for filter
-
-
+        TabHost.TabSpec spec3 = tabHost.newTabSpec("Freezer");
+        spec3.setContent(R.id.freezer);
+        spec3.setIndicator("Freezer");
+        tabHost.addTab(spec3);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -651,6 +663,10 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         freeAdapter.filter(filList);
     }
 
+    public TabHost getTabHost() {
+        return tabHost;
+    }
+
     class MyAdapter extends BaseAdapter {
         private List<ListItem> mylist = new ArrayList<>();
         public void update(List<ListItem> newList)
@@ -828,10 +844,11 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         }
 
         private void showNameEditDialog(final int pos){
-            AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this, R.style.AlertDialogCustom);
             final EditText edit = new EditText(MenuActivity.this);
             edit.setText(list.get(pos).getName());
-            builder.setTitle("Please entry").setIcon(android.R.drawable.ic_dialog_info).setView(edit);
+            edit.setTextColor(Color.WHITE);
+            builder.setTitle("Please enter").setIcon(android.R.drawable.ic_dialog_info).setView(edit);
             builder.setNegativeButton("Cancel", null);
             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
@@ -844,7 +861,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         }
 
         private void showDateEditDialog(final int pos){
-            AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this, R.style.AlertDialogCustom);
             final EditText edit = new EditText(MenuActivity.this);
             edit.setText(list.get(pos).getExpirationDate() + " Days");
             builder.setTitle("Please entry").setIcon(android.R.drawable.ic_dialog_info).setView(edit)
@@ -1060,7 +1077,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             if(temp[i].matches(".*\\bF$")){
                 //WHOLE FOOD:
                 Log.w("@::", Boolean.toString(temp[i].contains("@")));
-//                Log.w("temp i-1::",temp[i-1]);
                 if(temp[i].contains("@")) {
 
                     String tempStr = replaceChar(temp[i-1]);
@@ -1070,7 +1086,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
                     resList.add(tempStr);
 
-//                    resList.add(temp[i-1]);
                 }
                 else {
 
@@ -1096,20 +1111,9 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                         sb.append(" ");
                     }
 
-
-
-
                     resList.add(sb.toString());
                     Log.w("split::",sb.toString());
 
-
-
-
-//                    Matcher m = Pattern.compile("^.*?(?=(\\$?[0-9]*[^A-Za-z0-9][0-9][0-9][ $| F]))").matcher(temp[i]);
-//                    if(m.find()) {
-//                        resList.add(m.group(0));
-
-//                    }
                 }
             }
             //target:
@@ -1197,4 +1201,19 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         );
     }
 
+    // override onResume
+    @Override
+    protected void onResume() {
+        super.onResume();
+        TabHost tabhost = getTabHost();
+        for (int i = 0; i < tabHost.getTabWidget().getChildCount(); i++) {
+            tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#4C7AC6")); // unselected
+            TextView tv = (TextView) tabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title); //Unselected Tabs
+            tv.setTextColor(Color.parseColor("#ffffff"));
+        }
+
+        tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#1EA7E7")); // selected
+        TextView tv = (TextView) tabHost.getCurrentTabView().findViewById(android.R.id.title); //for Selected Tab
+        tv.setTextColor(Color.parseColor("#ffffff"));
+    }
 }

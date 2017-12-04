@@ -6,11 +6,17 @@
         <item name="colorPrimary">@android:color/holo_blue_dark</item>
         <item name="colorPrimaryDark">@android:color/background_dark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Base.Widget.AppCompat.Button.Borderless.MyStyle</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Base.Widget.AppCompat.Button.Borderless.MyStyle</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Base.Widget.AppCompat.Button.Borderless.MyStyle">
+        <item name="android:textColor">@color/button_color</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -19,6 +25,15 @@
 
     <style name="HeaderBar">
         <item name="android:background">#303F9F</item>
+    </style>
+
+    <style name="LightTabWidget" parent="@android:style/Widget.TabWidget">
+        <item name="android:textColor">@color/tab_title</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/button_color</item>
+        <item name="android:textColor">#ffffff</item>
     </style>
 
 </resources>

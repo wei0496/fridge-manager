@@ -4,23 +4,32 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/filterTxt"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Filter" />
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="Filter"
+            android:textColor="@android:color/background_light"
+            android:textIsSelectable="false"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <CheckBox
             android:id="@+id/spinnerRow"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="tag1" />
+            android:background="@android:color/holo_blue_dark"
+            android:text="tag1"
+            android:textColor="@color/cardview_light_background"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
