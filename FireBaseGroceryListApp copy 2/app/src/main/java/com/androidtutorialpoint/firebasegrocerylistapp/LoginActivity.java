@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
 
         view = this.getWindow().getDecorView().findViewById(android.R.id.content);
-        if (view instanceof EditText) {
+
             if (!(view instanceof EditText)) {
                 view.setOnTouchListener(new View.OnTouchListener() {
                     @Override
@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
             }
-        }
+
 
 
         auth = FirebaseAuth.getInstance();
