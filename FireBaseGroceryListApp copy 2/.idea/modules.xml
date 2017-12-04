@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FireBaseGroceryListApp copy 2.iml" filepath="$PROJECT_DIR$/FireBaseGroceryListApp copy 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FireBaseGroceryListApp copy 2.iml" filepath="$PROJECT_DIR$/FireBaseGroceryListApp copy 2.iml" />
       <module fileurl="file://C:\Users\12118\Desktop\yiran_version\FireBaseGroceryListApp copy 2\FireBaseGroceryListApp copy 2 2.iml" filepath="C:\Users\12118\Desktop\yiran_version\FireBaseGroceryListApp copy 2\FireBaseGroceryListApp copy 2 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
