@@ -389,7 +389,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
         // whether in background list
         inBG = new HashMap<>();
-        // k:itemname value: item Object. for quick find
         find = new HashMap<>();
         //for test.
 //        ocrResult =new String[] {"Apple","pear"};
@@ -1203,7 +1202,11 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
                         //test bg:
                         listItem.setExpirationDate("10");
-                        //
+
+                        // test:
+                        listItem.setTag(tag1s[0]);
+
+                        listItem.setReOrFree(Boolean.TRUE);
 
                         find.put(rawItem,find.size());
                         list.add(listItem);
@@ -1313,7 +1316,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         StringBuilder sb = new StringBuilder();
         for(char c:str.toCharArray())
         {
-            if(c=='$'||c=='#'||c=='['||c==']')
+            if(c=='.'||c=='$'||c=='#'||c=='['||c==']')
                 continue;
             sb.append(c);
         }
