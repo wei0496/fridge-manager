@@ -706,6 +706,19 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     e.printStackTrace();
                 }
             }
+            // fro add item
+            if(requestCode == 200)
+            {
+                String name = data.getStringExtra("name");
+                String date = data.getStringExtra("date");
+                String tag1 = data.getStringExtra("tag1");
+                String reOrFr = data.getStringExtra("tag2");
+                Boolean rOFBol = reOrFr.equals("refrigerator")?Boolean.TRUE:Boolean.FALSE;
+                ListItem temp = new ListItem(name,date,tag1,rOFBol);
+                list.add(temp);
+                adapter.update(list);
+
+            }
             /*********** used for OCR and Camera --end **************/
         }
     }
