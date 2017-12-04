@@ -204,16 +204,17 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
 
         view = this.getWindow().getDecorView().findViewById(android.R.id.content);
+        if (view instanceof EditText) {
+            if (!(view instanceof EditText)) {
+                view.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        hideSoftKeyboard(MenuActivity.this);
+                        return false;
+                    }
+                });
 
-        if (!(view instanceof EditText)) {
-            view.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    hideSoftKeyboard(MenuActivity.this);
-                    return false;
-                }
-            });
-
+            }
         }
 
         // Initialize items
