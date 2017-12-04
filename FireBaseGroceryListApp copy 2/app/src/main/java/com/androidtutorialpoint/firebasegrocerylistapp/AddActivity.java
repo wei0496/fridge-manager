@@ -22,7 +22,7 @@ public class AddActivity extends AppCompatActivity {
     String[] tag2s = {"refrigerator", "freezer"};
     EditText name,date;
     TextView tag1,tag2;
-    Button confirm;
+    Button submit,cancel;
     View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,8 @@ public class AddActivity extends AppCompatActivity {
     private void initView() {
         name = (EditText) findViewById(R.id.name);
         date = (EditText) findViewById(R.id.date);
-        confirm = (Button) findViewById(R.id.confirm);
+        submit = (Button) findViewById(R.id.Sumbit);
+        cancel = (Button) findViewById(R.id.Cancel);
 
         tag1 = (TextView) findViewById(R.id.tag1);
         tag1.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG );
@@ -70,7 +71,7 @@ public class AddActivity extends AppCompatActivity {
                 ShowTag2Dialog();
             }
         });
-        confirm.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nameString = name.getText().toString();
@@ -87,6 +88,14 @@ public class AddActivity extends AppCompatActivity {
                 setResult(120,intent);
                 AddActivity.this.finish();
                 Toast.makeText(AddActivity.this,"Add Shopping Success",Toast.LENGTH_SHORT).show();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AddActivity.this.finish();
+
             }
         });
     }
