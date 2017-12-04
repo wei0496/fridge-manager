@@ -1,5 +1,6 @@
 package com.androidtutorialpoint.firebasegrocerylistapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,8 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.telecom.Call;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -45,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText loginInputEmail, loginInputPassword;
     private TextInputLayout loginInputLayoutEmail, loginInputLayoutPassword;
 
-
+    private View view;
     //facebook log in related
     private CallbackManager fbCallBack;
     private LoginButton fbLogBtn;
@@ -55,6 +58,19 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+
+        view = this.getWindow().getDecorView().findViewById(android.R.id.content);
+
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(LoginActivity.this);
+                    return false;
+                }
+            });
+
+        }
 
 
         auth = FirebaseAuth.getInstance();
@@ -215,6 +231,15 @@ public class LoginActivity extends AppCompatActivity {
         }
         loginInputLayoutPassword.setErrorEnabled(false);
         return true;
+    }
+
+    private static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(
+                        activity.getCurrentFocus().getWindowToken(), 0
+                );
     }
 
     private static boolean isEmailValid(String email) {
