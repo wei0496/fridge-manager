@@ -152,12 +152,12 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
-            <com.facebook.login.widget.ProfilePictureView
+            <ImageView
                 android:id="@+id/avatar"
                 android:layout_width="@dimen/com_facebook_profilepictureview_preset_size_normal"
                 android:layout_height="@dimen/com_facebook_profilepictureview_preset_size_normal"
                 android:layout_gravity="center_horizontal|center"
-                android:layout_marginTop="50dp"></com.facebook.login.widget.ProfilePictureView>
+                android:layout_marginTop="50dp"></ImageView>
 
             <TextView
                 android:id="@+id/UserNameTxt"
