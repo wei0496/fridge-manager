@@ -50,10 +50,11 @@ public class CustomAdapter extends BaseAdapter {
         icons.add(R.mipmap.milk_icon);
 
         expiration_value = baseContext.getResources().getIntArray(R.array.expiration_duration);
-        list = new ArrayList<>();
-        list.addAll(mListItems);
-
+//        list = new ArrayList<>();
+//        list.addAll(mListItems);
+        list = mListItems;
     }
+
 
     @Override
     public int getCount() {
@@ -190,7 +191,8 @@ public class CustomAdapter extends BaseAdapter {
 
     public void setAll(ArrayList<ListItem> all)
     {
-        listAll = all;
+        listAll = new ArrayList<>();
+        listAll.addAll(all);
     }
 
 }

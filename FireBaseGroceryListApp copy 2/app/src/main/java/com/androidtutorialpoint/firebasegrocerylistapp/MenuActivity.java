@@ -457,10 +457,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         final Spinner filter =  (Spinner) findViewById(R.id.filterSpn) ;
 
         ArrayList<CheckBox> tagList = new ArrayList<>();
-//        CheckBox start = new CheckBox(this);
-//        start.setText("start");
-//        tagList.add(start);
-//
+
         for(String str: tag1s)
         {
             CheckBox cb = new CheckBox(this);
@@ -557,36 +554,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         tabHost.addTab(spec3);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//        switch(id){
-////            case R.id.action_delete_all:
-////                deleteAllListItems();
-////                break;
-//            case R.id.action_logout:
-//                FirebaseAuth.getInstance().signOut();
-//                startActivity(new Intent(this, LoginActivity.class));
-//                break;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
-//    public void deleteAllListItems(){
-//        FirebaseDatabase.getInstance().getReference().child("listItem").removeValue();
-//        myListItems.clear();
-//        Toast.makeText(this,"Items Deleted Successfully",Toast.LENGTH_SHORT).show();
-//    }
 
     private void fetchData(DataSnapshot dataSnapshot) {
         ListItem listItem=dataSnapshot.getValue(ListItem.class);
