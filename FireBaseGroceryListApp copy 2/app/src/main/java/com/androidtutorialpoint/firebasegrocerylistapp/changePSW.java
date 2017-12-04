@@ -1,10 +1,13 @@
 package com.androidtutorialpoint.firebasegrocerylistapp;
 
+import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,17 +22,19 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class changePSW extends AppCompatActivity {
 
+    View view;
     Button submit, Cancel;
     EditText newPsw, repeat,oldPsw;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_psw);
         submit = (Button) findViewById(R.id.pswSubmit);
-        Cancel = (Button) findViewById(R.id.pswCancle);
-        newPsw = (EditText) findViewById(R.id.pswTxt1);
-        repeat = (EditText) findViewById(R.id.pswTxt2);
-        oldPsw = (EditText) findViewById(R.id.oldPsw);
+        Cancel = (Button) findViewById(R.id.pswCancel);
+        newPsw = (EditText) findViewById(R.id.newpsd);
+        repeat = (EditText) findViewById(R.id.repeat);
+        oldPsw = (EditText) findViewById(R.id.oldpsd);
         Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +43,18 @@ public class changePSW extends AppCompatActivity {
                 finish();
             }
         });
+        view = this.getWindow().getDecorView().findViewById(android.R.id.content);
+
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(changePSW.this);
+                    return false;
+                }
+            });
+
+        }
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,5 +117,13 @@ public class changePSW extends AppCompatActivity {
                 });
             }
         });
+    }
+    private static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0
+        );
     }
 }

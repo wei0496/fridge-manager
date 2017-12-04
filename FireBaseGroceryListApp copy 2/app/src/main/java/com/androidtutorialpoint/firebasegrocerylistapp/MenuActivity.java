@@ -1,6 +1,7 @@
 package com.androidtutorialpoint.firebasegrocerylistapp;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Color;
@@ -33,6 +34,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -125,6 +127,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     private ArrayList<ListItem> myListItems;
     private ArrayList<ListItem> refrigItems;
     private ArrayList<ListItem> freezerItems;
+    private View view;
     /********** Shopping Page related *************/
     public List<ListItem> list;
     MyAdapter adapter;
@@ -137,6 +140,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     Map<String, Boolean> inBG;
     Map<String, Integer> find;
     Button submit;
+    Button add;
     DatabaseReference mBackDB;
 
     /********** used for camera and OCR related *************/
@@ -198,7 +202,20 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         setContentView(R.layout.activity_menu);
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
-//        getActionBar().show();
+
+
+        view = this.getWindow().getDecorView().findViewById(android.R.id.content);
+
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(MenuActivity.this);
+                    return false;
+                }
+            });
+
+        }
 
         // Initialize items
         frig_list = (LinearLayout)findViewById(R.id.frig_list);
@@ -379,7 +396,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 //        addToView(ocrResult);
 
         // submit new list to firebase
-        submit = (Button) findViewById(R.id.submit_btn);
+        submit = (Button) findViewById(R.id.Sumbit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -398,6 +415,15 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                 find.clear();
                 adapter.update(list);
 
+            }
+        });
+
+        add  = (Button) findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this,AddActivity.class);
+                startActivityForResult(intent,200);
             }
         });
 
@@ -529,7 +555,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch(id){
@@ -848,16 +873,18 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             TextView id = (TextView) convertView.findViewById(R.id.id);
             id.setText(Integer.toString(position));
 
-            EditText name = (EditText) convertView.findViewById(R.id.name);
+            TextView name = (TextView) convertView.findViewById(R.id.Name);
             name.setText(mylist.get(position).getListItemText());
-
-//            name.setOnClickListener(new View.OnClickListener() {
-//                String old;
-//                @Override
-//                public void onClick(View v) {
-//                    old =
-//                }
-//            });
+            name.setTag(position);
+            name.setOnClickListener(new View.OnClickListener() {
+                String old;
+                @Override
+                public void onClick(View v) {
+                    int pos = (int) v.getTag();
+                    showNameEditDialog(pos);
+                }
+            });
+/*
             name.addTextChangedListener(new TextWatcher() {
                 String old;
                 @Override
@@ -885,7 +912,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     }
                 }
             });
-
+*/
 
             TextView tag1 = (TextView) convertView.findViewById(R.id.tag1);
             String tag1str = "";
@@ -907,11 +934,21 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             tag2.setText(tag2str);
             tag2.setTag(position);
 
-            EditText et = (EditText) convertView.findViewById(R.id.date);
+            TextView et = (TextView) convertView.findViewById(R.id.date);
             String days = "0";
             if(mylist.get(position).getExpirationDate() != null)
                 days = mylist.get(position).getExpirationDate();
-            et.setText(days+"Days");
+            et.setText(days+" Days");
+            et.setTag(position);
+            et.setOnClickListener(new View.OnClickListener() {
+                String old;
+                @Override
+                public void onClick(View v) {
+                    int pos = (int) v.getTag();
+                    showDateEditDialog(pos);
+                }
+            });
+            /*
             et.addTextChangedListener(new TextWatcher() {
                 String old;
                 @Override
@@ -940,6 +977,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     }
                 }
             });
+            */
 
             tag1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -956,9 +994,59 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     ShowTag2Dialog(pos);
                 }
             });
+
+            lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                    new AlertDialog.Builder(MenuActivity.this)
+                            .setMessage("Do you want to remove this shopping?")
+                            .setNegativeButton("Cancel",null)
+                            .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    list.remove(position);
+                                    adapter.notifyDataSetChanged();
+                                    Toast.makeText(MenuActivity.this,"Remove Success!",Toast.LENGTH_SHORT).show();
+                                }
+                            }).show();
+
+                    return true;
+                }
+            });
             return convertView;
         }
 
+        private void showNameEditDialog(final int pos){
+            AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+            final EditText edit = new EditText(MenuActivity.this);
+            edit.setText(list.get(pos).getName());
+            builder.setTitle("Please entry").setIcon(android.R.drawable.ic_dialog_info).setView(edit);
+            builder.setNegativeButton("Cancel", null);
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int which) {
+                    list.get(pos).setListItemText(edit.getText().toString()) ;
+                    adapter.notifyDataSetChanged();
+                }
+            });
+            builder.show();
+        }
+
+        private void showDateEditDialog(final int pos){
+            AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+            final EditText edit = new EditText(MenuActivity.this);
+            edit.setText(list.get(pos).getExpirationDate() + " Days");
+            builder.setTitle("Please entry").setIcon(android.R.drawable.ic_dialog_info).setView(edit)
+                    .setNegativeButton("Cancel", null);
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int which) {
+                    list.get(pos).setExpirationDate(edit.getText().toString()) ;
+                    adapter.notifyDataSetChanged();
+                }
+            });
+            builder.show();
+        }
     }
 
     private void ShowTag1Dialog(final int pos) {
@@ -1288,5 +1376,14 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     } //create file for saving image(created by camera activity)
 
     /**************** used for OCR and camera --end***************/
+
+    private static void hideSoftKeyboard(Activity activity) {
+        InputMethodManager inputMethodManager =
+                (InputMethodManager) activity.getSystemService(
+                        Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(
+                activity.getCurrentFocus().getWindowToken(), 0
+        );
+    }
 
 }

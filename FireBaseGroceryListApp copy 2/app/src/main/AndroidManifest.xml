@@ -25,6 +25,7 @@
             android:name=".MenuActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddActivity"/>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

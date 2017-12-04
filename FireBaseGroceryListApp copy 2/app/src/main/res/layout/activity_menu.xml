@@ -81,7 +81,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Shopping List"
+                    android:text="FOOD RECEIPT"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -104,17 +104,34 @@
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/submit_btn"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="80dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="59dp"
-                android:layout_weight="1"
-                android:background="@drawable/submit_button"
-                android:text="Submit"
-                android:textColor="#ffffff" />
+                >
+                <Button
+                    android:id="@+id/Sumbit"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/submit_button"
+                    android:text="Submit"
+                    android:textColor="#ffffff"
+                    />
+                <Button
+                    android:id="@+id/add"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/submit_button"
+                    android:text="Add"
+                    android:textColor="#ffffff"
+                    />
+            </LinearLayout>
 
         </RelativeLayout>
     </LinearLayout>
