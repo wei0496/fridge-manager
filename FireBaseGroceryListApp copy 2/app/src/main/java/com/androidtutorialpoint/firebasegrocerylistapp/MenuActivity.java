@@ -1,6 +1,8 @@
 package com.androidtutorialpoint.firebasegrocerylistapp;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
@@ -53,6 +55,8 @@ import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.widget.ProfilePictureView;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -60,6 +64,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FileDownloadTask;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.googlecode.leptonica.android.AdaptiveMap;
 import com.googlecode.leptonica.android.Binarize;
 import com.googlecode.leptonica.android.Convert;
@@ -71,8 +79,10 @@ import com.googlecode.leptonica.android.Skew;
 import com.googlecode.leptonica.android.WriteFile;
 import com.googlecode.tesseract.android.TessBaseAPI;
 
+import java.io.ByteArrayOutputStream;
 import java.io.CharConversionException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -142,10 +152,12 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     String datapath = ""; //path to folder containing language data file
 
     /********** Account Page related *************/
+    static final int TAKE_PHOTO_FOR_AVATAR = 2;
+    static final int PICK_IMAGE_FOR_AVATAR = 101;
     private Button logOut;
     private FirebaseAuth auth;
     Profile profile;
-    ProfilePictureView avatar;
+    ImageView avatar;
     Bitmap bmp = null;
     Button pwdBtn;
     TextView nameTv;
@@ -176,6 +188,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         }
     };
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -211,12 +224,78 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
         tabHost = (TabHost) findViewById(R.id.regriTab);
         tabHost.setup();
+
+        Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mDB= FirebaseDatabase.getInstance().getReference();
         /********** Account page related initialization **********/
 
         bmp = BitmapFactory.decodeResource(getResources(),R.drawable.defaultavater);
 
-        avatar = (ProfilePictureView) findViewById(R.id.avatar);
-        avatar.setDefaultProfilePicture(bmp);
+        avatar = (ImageView) findViewById(R.id.avatar);
+        Bitmap avaBit = getAvatar();
+        avatar.setImageBitmap(avaBit);
+
+        avatar.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                AlertDialog.Builder dialog;
+                dialog = new AlertDialog.Builder(MenuActivity.this);
+                String[] camOrGal = new String[]{"Camera","Gallery"};
+                dialog
+                        .setTitle("Choose from")
+                        .setItems(camOrGal, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(which == 0)
+                        {
+                            //camera
+                            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                            // Ensure that there's a camera activity to handle the intent
+                            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                                // Create the File where the photo should go
+                                File photoFile = null;
+                                try {
+                                    photoFile = createImageFile();
+                                } catch (IOException ex) {
+                                    // Error occurred while creating the File
+                                }
+                                // Continue only if the File was successfully created
+                                if (photoFile != null) {
+                                    Uri photoURI = FileProvider.getUriForFile(MenuActivity.this,
+                                            "com.example.android.fileprovider",
+                                            photoFile);
+                                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                                    startActivityForResult(takePictureIntent, TAKE_PHOTO_FOR_AVATAR);
+                                }
+                            }
+
+                        }
+                        if(which == 1)
+                        {
+                            //gallery
+                            Intent gallery = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                            startActivityForResult(gallery, PICK_IMAGE_FOR_AVATAR);
+
+                        }
+                    }
+                }).create().show();
+
+
+
+
+                return true;
+            }
+        });
+
+
+
+
+
+
+
+
+
+
         profile = Profile.getCurrentProfile();
 
         //change password button
@@ -343,8 +422,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
 
         // database related operations
-        Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        mDB= FirebaseDatabase.getInstance().getReference();
+
 
         mListItemRef = mDB.child("listItem").child(Uid);
         updateUI();
@@ -577,6 +655,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
             /*********** used for OCR and Camera --start **************/
             if (requestCode == PICK_IMAGE) {
+
                 Uri IMAGE_URI = data.getData();
                 try {
                     InputStream image_stream = getContentResolver().openInputStream(IMAGE_URI);
@@ -591,8 +670,118 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                 Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
                 processImage(bitmap);
             }
+
+            if(requestCode==PICK_IMAGE_FOR_AVATAR)
+            {
+                //gallery
+                Log.w("take photo for avatar",Integer.toString(TAKE_PHOTO_FOR_AVATAR));
+                Uri IMAGE_URI = data.getData();
+                try {
+                    InputStream image_stream = getContentResolver().openInputStream(IMAGE_URI);
+                    Bitmap bitmap= BitmapFactory.decodeStream(getContentResolver().openInputStream(IMAGE_URI));
+                    avatar.setImageBitmap(bitmap);
+                    updateAvatarToDB(bitmap);
+                    saveToLocal(bitmap);
+
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            if(requestCode == TAKE_PHOTO_FOR_AVATAR){
+                //camera
+                Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath);
+                avatar.setImageBitmap(bitmap);
+                updateAvatarToDB(bitmap);
+                try {
+
+                    saveToLocal(bitmap);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
             /*********** used for OCR and Camera --end **************/
         }
+    }
+
+    private Bitmap getAvatar()
+    {
+        Log.w("chile name",FirebaseStorage.getInstance().getReference().child("avatar").toString());
+        StorageReference sto = FirebaseStorage.getInstance().getReference().child("avatar").child(Uid);
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        File dir = cw.getDir("avatar",Context.MODE_PRIVATE);
+        File mypath= new File(dir,"avatar.jpg");
+        sto.getFile(mypath).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                Log.w("get Img fire storage","success");
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("get Img fire storage","fail");
+            }
+        });
+
+        Bitmap res = loadAvatarFromLocal();
+        if(res == null)
+            res = bmp;
+        return res;
+
+    }
+
+    private Bitmap loadAvatarFromLocal() {
+
+        Bitmap res = null;
+        try {
+            StorageReference sto = FirebaseStorage.getInstance().getReference().child("avatar").child(Uid);
+            ContextWrapper cw = new ContextWrapper(getApplicationContext());
+            String userName = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+            File dir = cw.getDir(userName, Context.MODE_PRIVATE);
+            File mypath = new File(dir, "avatar.jpg");
+            res = BitmapFactory.decodeStream(new FileInputStream(mypath));
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    private String saveToLocal(Bitmap bitmap) throws FileNotFoundException {
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        String userName = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+        File dir = cw.getDir(userName,Context.MODE_PRIVATE);
+        File mypath= new File(dir,"avatar.jpg");
+        FileOutputStream fo = null;
+
+               fo = new FileOutputStream(mypath);
+               bitmap.compress(Bitmap.CompressFormat.JPEG,100,fo);
+               return dir.getAbsolutePath();
+    }
+    private boolean updateAvatarToDB(Bitmap bitmap)
+    {
+        StorageReference stoRef = FirebaseStorage.getInstance().getReference().child("avatar").child(Uid);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,baos);
+        byte[] data = baos.toByteArray();
+
+        UploadTask uploadTask = stoRef.putBytes(data);
+        final Uri[] uri = new Uri[1];
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                uri[0] = taskSnapshot.getDownloadUrl();
+            }
+        });
+        return uri[0]!=null;
     }
 
     private void initView(){
