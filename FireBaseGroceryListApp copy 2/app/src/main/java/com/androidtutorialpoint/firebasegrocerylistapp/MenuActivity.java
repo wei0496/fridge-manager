@@ -506,6 +506,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
         filter.setAdapter(sp);
 
+
         mFrigItemList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long l) {
@@ -535,7 +536,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                 return true;
             }
         });
-
         refrigList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -1084,11 +1084,12 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     ShowTag2Dialog(pos);
                 }
             });
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                {
 
-            lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-                @Override
-                public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                    new AlertDialog.Builder(MenuActivity.this)
+                    @Override
+                        public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                        new AlertDialog.Builder(MenuActivity.this)
                             .setMessage("Do you want to remove this shopping?")
                             .setNegativeButton("Cancel",null)
                             .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
@@ -1099,8 +1100,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                                     Toast.makeText(MenuActivity.this,"Remove Success!",Toast.LENGTH_SHORT).show();
                                 }
                             }).show();
-
-                    return true;
                 }
             });
             return convertView;
