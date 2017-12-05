@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\12118\\Desktop\\cs591project\\MagicFrigYP\\app\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\12118\\.gradle\\caches\\transforms-1\\files-1.1\\AwesomeSplash-v1.0.0.aar\\687017333527a72442ff8b33fab8aaa6\\res\\values-w820dp\\values-w820dp.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "147",
+                        "endColumns": "57",
+                        "endOffsets": "200"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "57",
+                        "endOffsets": "108"
+                    }
+                }
+            ]
+        }
+    ]
+}

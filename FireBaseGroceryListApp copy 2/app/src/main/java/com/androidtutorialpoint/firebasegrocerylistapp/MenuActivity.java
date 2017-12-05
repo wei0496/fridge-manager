@@ -402,17 +402,52 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             public void onClick(View v) {
                 if (list.size() == 0)
                     return;
-                for (ListItem listItem : list) {
 
-                    updateToUserDB(listItem);
-                    if (find.containsKey(listItem.getListItemText()) && listItem.BGable()) {
-                        updateToBackDB(listItem);
+                for(int i=0;i<list.size();i++)
+                {
+                    ListItem listItem = list.get(i);
+                    boolean isRepeated=false;
+                    for(int j=0;j<i;j++)
+                    {
+                        ListItem listItem2 = list.get(j);
+                        if(listItem.getName().equals(listItem2.getName())&&
+                           listItem.getExpirationDate().equals(listItem2.getExpirationDate()))
+                        {
+                            Log.i("isRepeated","becomes true(lI)");
+                            isRepeated=true;
+                        }
+
+                    }
+                    for(ListItem listItem2: myListItems)
+                    {
+                        Log.i("myListItems",listItem2.getName());
+                        if(listItem2.getExpirationDate().equals(listItem.getExpirationDate())&&listItem2.getName().equals(listItem.getName()))
+                        {
+                            Log.i("isRepeated","becomes true(mLI)");
+                            isRepeated=true;
+                        }
+                    }
+                    if(!isRepeated)
+                    {
+                        Log.i("isRepeated: ","false");
+                        updateToUserDB(listItem);
+
+                        if (find.containsKey(listItem.getListItemText()) && listItem.BGable()) {
+                            updateToBackDB(listItem);
+                        }
+                    }
+                    else
+                    {
+                        Log.i("isRepeated: ","true");
+                        list.remove(i);
+                        i--;
                     }
 
                 }
                 list.clear();
                 find.clear();
                 adapter.update(list);
+
 
             }
         });

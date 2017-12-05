@@ -1,0 +1,4 @@
+#Sat Nov 25 16:52:32 EST 2017
+base.0=C\:\\Users\\12118\\Desktop\\cs591project\\MagicFrigYP\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Users\12118\Desktop\cs591project\MagicFrigYP\app\src\main\assets"><file name="fonts/chelaone_regular.ttf" path="C:\Users\12118\Desktop\cs591project\MagicFrigYP\app\src\main\assets\fonts\chelaone_regular.ttf"/></source><source path="C:\Users\12118\Desktop\cs591project\MagicFrigYP\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\12118\Desktop\cs591project\MagicFrigYP\app\src\debug\assets"/></dataSet></merger>

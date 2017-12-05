@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Sat Nov 25 16:52:32 EST 2017
+1.base=C\:\\Users\\12118\\Desktop\\cs591project\\MagicFrigYP\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
+0.path=fonts/chelaone_regular.ttf
+0.set=ASSET
+0.base=C\:\\Users\\12118\\Desktop\\cs591project\\MagicFrigYP\\app\\build\\intermediates\\assets\\debug
+1.path=classes.dex
