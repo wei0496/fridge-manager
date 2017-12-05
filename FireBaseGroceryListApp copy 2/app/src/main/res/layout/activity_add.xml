@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:text="Add Shopping "
+        android:text="Add Food "
         android:gravity="center"
         android:textColor="@color/blue_color"
         android:textSize="22sp"

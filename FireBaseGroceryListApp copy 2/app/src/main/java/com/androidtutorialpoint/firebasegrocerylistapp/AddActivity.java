@@ -77,7 +77,7 @@ public class AddActivity extends AppCompatActivity {
                 String nameString = name.getText().toString();
                 String dateString = date.getText().toString();
                 if(TextUtils.isEmpty(nameString)||TextUtils.isEmpty(dateString)){
-                    Toast.makeText(AddActivity.this,"Your must entry name and date",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddActivity.this,"Your must enter name and date",Toast.LENGTH_SHORT).show();
                     return ;
                 }
                 Intent intent = new Intent();
@@ -87,7 +87,7 @@ public class AddActivity extends AppCompatActivity {
                 intent.putExtra("tag2",tag2.getText().toString());
                 setResult(120,intent);
                 AddActivity.this.finish();
-                Toast.makeText(AddActivity.this,"Add Shopping Success",Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddActivity.this,"Add Successfully",Toast.LENGTH_SHORT).show();
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
