@@ -20,18 +20,18 @@ public class AlarmReceiver extends BroadcastReceiver {
         //check if any of our food are expiring here
 
         if (flag == 1) {
-            Intent notificationIntent = new Intent(context, NotificationActivity.class);
+            Intent notificationIntent = new Intent(context, MenuActivity.class);
 
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-            stackBuilder.addParentStack(NotificationActivity.class);
+            stackBuilder.addParentStack(MenuActivity.class);
             stackBuilder.addNextIntent(notificationIntent);
 
             PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
-            Notification notification = builder.setContentTitle("Fridge Manager Notification")
-                    .setContentText("New Notification From Fridge Manager..")
+            Notification notification = builder.setContentTitle("Magic Fridge Notification!!")
+                    .setContentText("New Notification From Magic Fridge!!")
                     .setTicker("Your Food are expiring soon! -- Fridge Manager")
                     .setSmallIcon(R.mipmap.ic_launcher)
                     .setContentIntent(pendingIntent).build();

@@ -44,7 +44,7 @@ public class SplashActivity extends AwesomeSplash {
 
     @Override
     public void animationsFinished() {
-        startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+        startActivity(new Intent(SplashActivity.this, ExpirationActivity.class));
         // change the transition animation
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
     }

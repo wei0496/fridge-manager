@@ -508,29 +508,88 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
         mFrigItemList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                ListItem delItem = frigAdapter.deleteItem(i);
-                refrigAdapter.deleteItem(delItem);
-                freeAdapter.deleteItem(delItem);
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long l) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(
+                        MenuActivity.this);
+                alert.setTitle("Alert!!");
+                alert.setMessage("Are you sure to delete this food?");
+                alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //do your work here
+                        ListItem delItem = frigAdapter.deleteItem(i);
+                        refrigAdapter.deleteItem(delItem);
+                        freeAdapter.deleteItem(delItem);
+                        dialog.dismiss();
 
+                    }
+                });
+                alert.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
                 return true;
             }
         });
+
         refrigList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                ListItem delItem = refrigAdapter.deleteItem(position);
-                frigAdapter.deleteItem(delItem);
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(
+                        MenuActivity.this);
+                alert.setTitle("Alert!!");
+                alert.setMessage("Are you sure to delete this food?");
+                alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //do your work here
+                        ListItem delItem = refrigAdapter.deleteItem(position);
+                        frigAdapter.deleteItem(delItem);
+                        dialog.dismiss();
 
+                    }
+                });
+                alert.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
                 return true;
             }
         });
         freezerList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                ListItem delItem = freeAdapter.deleteItem(position);
-                frigAdapter.deleteItem(delItem);
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(
+                        MenuActivity.this);
+                alert.setTitle("Alert!!");
+                alert.setMessage("Are you sure to delete this food?");
+                alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //do your work here
+                        ListItem delItem = freeAdapter.deleteItem(position);
+                        frigAdapter.deleteItem(delItem);
 
+                        dialog.dismiss();
+
+                    }
+                });
+                alert.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
                 return true;
             }
         });
@@ -902,7 +961,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             convertView = LayoutInflater.from(MenuActivity .this).inflate(R.layout.item_list, null);
 
             TextView id = (TextView) convertView.findViewById(R.id.id);
-            id.setText(Integer.toString(position));
+            //id.setText(Integer.toString(position));
 
             TextView name = (TextView) convertView.findViewById(R.id.Name);
             name.setText(mylist.get(position).getListItemText());

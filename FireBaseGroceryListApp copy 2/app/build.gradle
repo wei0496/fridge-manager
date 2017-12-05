@@ -34,12 +34,12 @@ dependencies {
     compile "com.android.support:design:25.0.1"
     testCompile 'junit:junit:4.12'
     //noinspection GradleCompatible
-    compile 'com.google.firebase:firebase-storage:11.6.2'
+    compile 'com.google.firebase:firebase-storage:9.0.2'
 
-    compile 'com.google.firebase:firebase-auth:11.6.2'
+    compile 'com.google.firebase:firebase-auth:9.0.2'
 
-    compile 'com.google.firebase:firebase-core:11.6.2'
-    compile 'com.google.firebase:firebase-database:11.6.2'
+    compile 'com.google.firebase:firebase-core:9.0.2'
+    compile 'com.google.firebase:firebase-database:9.0.2'
 
     compile 'com.android.support:recyclerview-v7:25.4.0'
     compile 'com.rmtheis:tess-two:8.0.0'

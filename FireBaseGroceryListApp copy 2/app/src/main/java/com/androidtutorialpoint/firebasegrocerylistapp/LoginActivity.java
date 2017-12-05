@@ -59,21 +59,6 @@ public class LoginActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
 
-        view = this.getWindow().getDecorView().findViewById(android.R.id.content);
-
-            if (!(view instanceof EditText)) {
-                view.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        hideSoftKeyboard(LoginActivity.this);
-                        return false;
-                    }
-                });
-
-            }
-
-
-
         auth = FirebaseAuth.getInstance();
         //qpx
         //check user is login:
@@ -82,6 +67,18 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
             startActivity(intent);
             finish();
+        }
+
+        view = this.getWindow().getDecorView().findViewById(android.R.id.content);
+
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard(LoginActivity.this);
+                    return false;
+                }
+            });
         }
 
         loginInputLayoutEmail = (TextInputLayout) findViewById(R.id.login_input_layout_email);
