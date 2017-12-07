@@ -22,91 +22,126 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg0"
+            android:background="@drawable/bg5"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:paddingTop="16dp">
-
-            <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/linearLayout"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="80dp"
-                android:layout_marginTop="21dp"
-                android:orientation="vertical">
-
-                <ListView
-                    android:id="@+id/lv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/linearLayout"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="15dp"
-                    android:layout_weight="1"
-                    android:divider="@drawable/line2"
-                    android:dividerHeight="1dp"></ListView>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnUseCamera"
-                    style="@style/ButtonTheme"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnUseGallery"
-                    android:layout_weight="1"
-                    android:background="@mipmap/submit_button_1"
-                    android:backgroundTint="@android:color/background_light"
-                    android:hapticFeedbackEnabled="false"
-                    android:text="Use Camera"
-                    android:textColor="@android:color/holo_blue_light"
-                    android:textSize="14sp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="139dp"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_alignBottom="@+id/linearLayout"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
+                    android:fontFamily="@font/comicsansregular"
+                    android:layout_marginBottom="30dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Grocery List"
+                    android:text="Adding Grocery"
                     android:textColor="#ffffff"
-                    android:textSize="20sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/btnUseGallery"
-                    style="@style/ButtonTheme"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_toStartOf="@+id/btnUseGallery"
+                <TextView
+                    android:id="@+id/scan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_alignBottom="@+id/linearLayout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:background="@mipmap/submit_button_1"
-                    android:backgroundTint="@android:color/background_light"
-                    android:hapticFeedbackEnabled="false"
-                    android:text="Use Gallery"
+                    android:fontFamily="@font/comicsansregular"
+                    android:gravity="center"
+                    android:text="Scan Receipt"
                     android:textColor="@android:color/holo_blue_light"
-                    android:textSize="14sp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="16dp" />
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnUseCamera"
+                        style="@style/ButtonTheme"
+
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toLeftOf="@+id/btnUseGallery"
+                        android:layout_toStartOf="@+id/btnUseGallery"
+                        android:layout_weight="1"
+                        android:background="@mipmap/submit_button_1"
+
+                        android:hapticFeedbackEnabled="false"
+                        android:text="Use Camera"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="16dp" />
+
+                    <Button
+                        android:id="@+id/btnUseGallery"
+                        style="@style/ButtonTheme"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toLeftOf="@+id/btnUseGallery"
+                        android:layout_toStartOf="@+id/btnUseGallery"
+                        android:layout_weight="1"
+                        android:background="@mipmap/submit_button_1"
+
+                        android:hapticFeedbackEnabled="false"
+                        android:text="Use Gallery"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="244dp"
+                    android:layout_below="@+id/linearLayout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ListView
+                        android:id="@+id/lv"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_below="@+id/linearLayout"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:divider="@drawable/line2"
+                        android:dividerHeight="1dp">
+
+                    </ListView>
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="80dp"
                 android:layout_marginLeft="20dp"
@@ -116,9 +151,10 @@
                     android:id="@+id/Sumbit"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
-                    android:layout_weight="1"
+                    android:layout_weight="5"
                     android:background="@drawable/submit_button"
                     android:text="Submit"
+                    android:textSize="15sp"
                     android:textColor="#ffffff" />
 
                 <Button
@@ -127,9 +163,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/submit_button"
-                    android:text="Add"
-                    android:textColor="#ffffff" />
+                    android:background="@drawable/add" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -220,20 +254,42 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:text="My Fridge"
+                android:text="Magic Fridge"
+                android:fontFamily="@font/chelaone_regular"
                 android:textColor="@android:color/background_light"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <Spinner
-                android:id="@+id/filterSpn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:background="@drawable/com_facebook_tooltip_black_bottomnub"
-                android:gravity="center"
-                android:popupBackground="@android:color/holo_blue_dark"
-                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="20dp"
+                    android:text="Filter"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="23dp"
+                    android:textColor="#ffffff"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textStyle="italic"
+                    />
+
+                <Spinner
+                    android:id="@+id/Spn"
+                    android:layout_width="40dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="20dp"
+
+                    android:gravity="center"
+                    android:popupBackground="@android:color/holo_blue_dark"
+                    android:visibility="visible" />
+            </LinearLayout>
 
             <TabHost
                 android:id="@+id/regriTab"
@@ -253,6 +309,7 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:textAlignment="textStart"
+                        android:layout_gravity="start"
                         android:visibility="visible" />
 
                     <FrameLayout

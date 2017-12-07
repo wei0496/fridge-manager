@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddActivity extends AppCompatActivity {
-    String[] tag1s = {"meat", "veggies", "dairy", "ice-cream"};
+    String[] tag1s = {"meat", "veggies", "dairy", "ice-cream","fruit"};
     String[] tag2s = {"refrigerator", "freezer"};
     EditText name,date;
     TextView tag1,tag2;

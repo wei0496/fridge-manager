@@ -131,7 +131,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     public List<ListItem> list;
     MyAdapter adapter;
     ArrayAdapter<ListItem> adapterLI;
-    String[] tag1s = {"meat", "veggies", "dairy", "ice-cream"};
+    String[] tag1s = {"meat", "veggies", "dairy", "ice-cream","fruit"};
     String[] tag2s = {"Refrigerator","Freezer"};
     ListView lv;
     TextView tv[];//bottom
@@ -489,7 +489,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         mListItemRef = mDB.child("listItem").child(Uid);
         updateUI();
 
-        final Spinner filter =  (Spinner) findViewById(R.id.filterSpn) ;
+        final Spinner filter =  (Spinner) findViewById(R.id.Spn) ;
 
         ArrayList<CheckBox> tagList = new ArrayList<>();
 
@@ -1090,14 +1090,14 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     @Override
                         public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                         new AlertDialog.Builder(MenuActivity.this)
-                            .setMessage("Do you want to remove this shopping?")
+                            .setMessage("Do you want to remove this item?")
                             .setNegativeButton("Cancel",null)
                             .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     list.remove(position);
                                     adapter.notifyDataSetChanged();
-                                    Toast.makeText(MenuActivity.this,"Remove Success!",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MenuActivity.this,"Remove Successfully!",Toast.LENGTH_SHORT).show();
                                 }
                             }).show();
                 }
