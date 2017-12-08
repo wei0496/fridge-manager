@@ -256,7 +256,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             @Override
             public boolean onLongClick(View v) {
                 AlertDialog.Builder dialog;
-                dialog = new AlertDialog.Builder(MenuActivity.this,android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
+                dialog = new AlertDialog.Builder(MenuActivity.this);
                 String[] camOrGal = new String[]{"Camera","Gallery"};
                 dialog
                         .setTitle("Choose from")
@@ -679,7 +679,42 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         }
     }
 
+    public void createNewListItem() {
+        // Create new List Item  at /listItem
 
+        final String key = FirebaseDatabase.getInstance().getReference().child("listItem").push().getKey();
+        LayoutInflater li = LayoutInflater.from(this);
+        View getListItemView = li.inflate(R.layout.dialog_get_list_item, null);
+
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        alertDialogBuilder.setView(getListItemView);
+
+        final EditText userInput = (EditText) getListItemView.findViewById(R.id.editTextDialogUserInput);
+        final EditText Expiration = (EditText) getListItemView.findViewById(R.id.editExpirationDialogUserInput);
+        final EditText Tags = (EditText) getListItemView.findViewById(R.id.editTagsDialogUserInput);
+
+        // set dialog message
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // get user input and set it to result
+                        // edit text
+                        String listItemText = userInput.getText().toString();
+                        String listItemExpiration = Expiration.getText().toString();
+                        String listItemTags = Tags.getText().toString();
+                        ListItem listItem = new ListItem(listItemText, listItemExpiration, listItemTags);
+                        Map<String, Object> listItemValues = listItem.toMap();
+                        Map<String, Object> childUpdates = new HashMap<>();
+                        childUpdates.put("/listItem/" + key, listItemValues);
+                        FirebaseDatabase.getInstance().getReference().updateChildren(childUpdates);
+
+                    }
+                }).create()
+                .show();
+
+    }
 
     /********** Functions for shopping page ***********/
     public void updateToUserDB(ListItem listItem)
@@ -939,7 +974,35 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     showNameEditDialog(pos);
                 }
             });
+/*
+            name.addTextChangedListener(new TextWatcher() {
+                String old;
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    old = s.toString();
+                }
 
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if(s.toString().trim().equals(""))
+                        s = new SpannableStringBuilder(old);
+                    else {
+                        list.get(position).setListItemText(s.toString());
+                        if(find.containsKey(list.get(position).getListItemText()))
+                        {
+                            int index = find.get(list.get(position).getListItemText());
+                            updateBG.get(index).setListItemText(s.toString());
+                        }
+                        Log.w("Name Changed", list.get(position).getListItemText());
+                    }
+                }
+            });
+*/
 
             TextView tag1 = (TextView) convertView.findViewById(R.id.tag1);
             String tag1str = "";
@@ -975,7 +1038,36 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     showDateEditDialog(pos);
                 }
             });
+            /*
+            et.addTextChangedListener(new TextWatcher() {
+                String old;
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    old = s.toString();
+                }
 
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if(s.equals(""))
+                        s = new SpannableStringBuilder(old);
+                    else{
+                        list.get(position).setExpirationDate(s.toString());
+                        if(find.containsKey(list.get(position).getListItemText()))
+                        {
+                            int index = find.get(list.get(position).getListItemText());
+                            updateBG.get(index).setTag(s.toString());
+                        }
+                        s = new SpannableStringBuilder(s.toString()+"Days");
+                        Log.w("Day Changed", list.get(position).getExpirationDate());
+                    }
+                }
+            });
+            */
 
             tag1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1033,19 +1125,14 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         private void showDateEditDialog(final int pos){
             AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this, R.style.AlertDialogCustom);
             final EditText edit = new EditText(MenuActivity.this);
-            edit.setInputType(2);
-//            edit.setText(list.get(pos).getExpirationDate() + " Days");
-
-            builder.setTitle("Please enter").setIcon(android.R.drawable.ic_dialog_info).setView(edit)
+            edit.setText(list.get(pos).getExpirationDate() + " Days");
+            builder.setTitle("Please entry").setIcon(android.R.drawable.ic_dialog_info).setView(edit)
                     .setNegativeButton("Cancel", null);
             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int which) {
-                    if(!edit.getText().toString().isEmpty())
-                    {
-                        list.get(pos).setExpirationDate(edit.getText().toString()) ;
-                        adapter.notifyDataSetChanged();
-                    }
+                    list.get(pos).setExpirationDate(edit.getText().toString()) ;
+                    adapter.notifyDataSetChanged();
                 }
             });
             builder.show();
@@ -1054,8 +1141,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
     private void ShowTag1Dialog(final int pos) {
 
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
-        AlertDialog.Builder builder = new AlertDialog.Builder(this,android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
         builder.setTitle("Please Choose:");
         builder.setItems(tag1s, new DialogInterface.OnClickListener() {
             @Override
@@ -1074,7 +1160,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
     private void ShowTag2Dialog(final int pos) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
         builder.setTitle("Please Choose:");
         builder.setItems(tag2s, new DialogInterface.OnClickListener() {
             @Override

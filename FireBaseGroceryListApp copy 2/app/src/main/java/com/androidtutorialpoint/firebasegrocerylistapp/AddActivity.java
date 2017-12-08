@@ -102,7 +102,7 @@ public class AddActivity extends AppCompatActivity {
 
     private void ShowTag1Dialog() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
         builder.setTitle("Please Choose:");
         builder.setItems(tag1s, new DialogInterface.OnClickListener() {
             @Override
@@ -115,7 +115,7 @@ public class AddActivity extends AppCompatActivity {
 
     private void ShowTag2Dialog() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
         builder.setTitle("Please Choose:");
         builder.setItems(tag2s, new DialogInterface.OnClickListener() {
             @Override
