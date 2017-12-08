@@ -6,7 +6,7 @@
 
     <color name="bg_splash">@android:color/holo_blue_dark</color>
 
-    <color name="text_color">#CCCCCC</color>
+    <color name="text_color">#cccccc</color>
     <color name="blue_color">#00c8dd</color>
     <color name="black">#000000</color>
     <color name="button_color">#4C7AC6</color>

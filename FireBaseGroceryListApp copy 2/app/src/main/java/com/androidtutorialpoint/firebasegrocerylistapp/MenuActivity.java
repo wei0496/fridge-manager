@@ -24,6 +24,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -256,7 +257,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             @Override
             public boolean onLongClick(View v) {
                 AlertDialog.Builder dialog;
-                dialog = new AlertDialog.Builder(MenuActivity.this);
+                dialog = new AlertDialog.Builder(MenuActivity.this,android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
                 String[] camOrGal = new String[]{"Camera","Gallery"};
                 dialog
                         .setTitle("Choose from")
@@ -1115,8 +1116,10 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int which) {
-                    list.get(pos).setListItemText(edit.getText().toString()) ;
-                    adapter.notifyDataSetChanged();
+                    if(!edit.getText().toString().isEmpty()) {
+                        list.get(pos).setListItemText(edit.getText().toString());
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             });
             builder.show();
@@ -1125,14 +1128,17 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         private void showDateEditDialog(final int pos){
             AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this, R.style.AlertDialogCustom);
             final EditText edit = new EditText(MenuActivity.this);
-            edit.setText(list.get(pos).getExpirationDate() + " Days");
-            builder.setTitle("Please entry").setIcon(android.R.drawable.ic_dialog_info).setView(edit)
+            edit.setInputType(InputType.TYPE_CLASS_NUMBER);
+            edit.setTextColor(Color.WHITE);
+            builder.setTitle("Please enter").setIcon(android.R.drawable.ic_dialog_info).setView(edit)
                     .setNegativeButton("Cancel", null);
             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int which) {
-                    list.get(pos).setExpirationDate(edit.getText().toString()) ;
-                    adapter.notifyDataSetChanged();
+                    if(!edit.getText().toString().isEmpty()) {
+                        list.get(pos).setExpirationDate(edit.getText().toString());
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             });
             builder.show();
@@ -1141,7 +1147,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
     private void ShowTag1Dialog(final int pos) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
         builder.setTitle("Please Choose:");
         builder.setItems(tag1s, new DialogInterface.OnClickListener() {
             @Override
@@ -1160,7 +1166,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
     private void ShowTag2Dialog(final int pos) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
         builder.setTitle("Please Choose:");
         builder.setItems(tag2s, new DialogInterface.OnClickListener() {
             @Override

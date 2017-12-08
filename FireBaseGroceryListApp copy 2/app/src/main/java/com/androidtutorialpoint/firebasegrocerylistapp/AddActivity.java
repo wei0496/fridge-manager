@@ -54,10 +54,10 @@ public class AddActivity extends AppCompatActivity {
         cancel = (Button) findViewById(R.id.Cancel);
 
         tag1 = (TextView) findViewById(R.id.tag1);
-        tag1.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG );
+//        tag1.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG );
         tag1.setText(tag1s[0]);
         tag2 = (TextView) findViewById(R.id.tag2);
-        tag2.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG );
+//        tag2.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG );
         tag2.setText(tag2s[0]);
         tag1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +102,7 @@ public class AddActivity extends AppCompatActivity {
 
     private void ShowTag1Dialog() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
         builder.setTitle("Please Choose:");
         builder.setItems(tag1s, new DialogInterface.OnClickListener() {
             @Override
@@ -115,7 +115,7 @@ public class AddActivity extends AppCompatActivity {
 
     private void ShowTag2Dialog() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
         builder.setTitle("Please Choose:");
         builder.setItems(tag2s, new DialogInterface.OnClickListener() {
             @Override

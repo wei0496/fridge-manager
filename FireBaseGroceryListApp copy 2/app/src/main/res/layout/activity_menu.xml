@@ -201,7 +201,7 @@
                 android:layout_marginBottom="40dp"
                 android:gravity="center"
                 android:text="TextView"
-                android:textColor="@color/com_facebook_button_background_color_focused"
+                android:textColor="@color/strokeColor"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
