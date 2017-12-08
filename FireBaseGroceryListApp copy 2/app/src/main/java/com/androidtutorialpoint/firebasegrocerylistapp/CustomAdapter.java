@@ -31,7 +31,7 @@ import java.util.Map;
 public class CustomAdapter extends BaseAdapter {
 
     private String names[];              // name for the item
-    private ArrayList<Integer> icons;   // icons for the item
+    private HashMap<String,Integer> icons;   // icons for the item
     private int expiration_value[];  // expiration duration for the item
     private ArrayList<ListItem> list;
     private ArrayList<ListItem> listAll;
@@ -44,10 +44,14 @@ public class CustomAdapter extends BaseAdapter {
 
         names = baseContext.getResources().getStringArray(R.array.names);  //retrieving list of episodes predefined in strings-array "episodes" in strings.xml
 
-        icons = new ArrayList<Integer>();   //Could also use helper function "getDrawables(..)" below to auto-extract drawable resources, but keeping things as simple as possible.
-        icons.add(R.mipmap.fruits_icon);
-        icons.add(R.mipmap.meat_icon);
-        icons.add(R.mipmap.milk_icon);
+        icons = new HashMap<>();   //Could also use helper function "getDrawables(..)" below to auto-extract drawable resources, but keeping things as simple as possible.
+        icons.put("meat",R.mipmap.meat_icon);
+        icons.put("fruit",R.mipmap.fruits_icon);
+        icons.put("dairy",R.mipmap.milk_icon);
+        icons.put("veggies",R.mipmap.vegetables_icon);
+        icons.put("ice-cream",R.mipmap.ice_cream_icon);
+        icons.put("other",R.mipmap.other_icon);
+//        String[] tag1s = { "ice-cream","other"};
 
         expiration_value = baseContext.getResources().getIntArray(R.array.expiration_duration);
 //        list = new ArrayList<>();
@@ -91,7 +95,9 @@ public class CustomAdapter extends BaseAdapter {
 //        expiration_bar.setMax(expiration_value[position]);
 //        icon.setImageResource(icons.get(position).intValue());
 
-        icon.setImageResource(R.mipmap.milk_icon);
+//        icon.setImageResource(icons.get(list.get(position).getName()));
+
+        icon.setImageResource(icons.get(list.get(position).getTag()));
         item_id.setText(list.get(position).getName());
         expiration_bar.setText(list.get(position).getExpirationDate());
 

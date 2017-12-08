@@ -131,7 +131,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     public List<ListItem> list;
     MyAdapter adapter;
     ArrayAdapter<ListItem> adapterLI;
-    String[] tag1s = {"meat", "veggies", "dairy", "ice-cream","fruit"};
+    String[] tag1s = {"meat", "veggies", "dairy", "ice-cream","fruit","other"};
     String[] tag2s = {"Refrigerator","Freezer"};
     ListView lv;
     TextView tv[];//bottom
