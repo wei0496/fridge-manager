@@ -8,53 +8,100 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="400px"
-        android:background="@mipmap/product_bg2"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/button_color"
         android:orientation="horizontal"
-        android:padding="40dp">
+        android:padding="30dp"
+        tools:layout_editor_absoluteX="10dp">
 
         <ImageView
             android:id="@+id/icon"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.1"
-            app:srcCompat="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/item_id"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.4"
-            android:gravity="center"
-            android:text="diet coke"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:theme="@style/AppTheme" />
-
-        <TextView
-            android:id="@+id/expiration_date"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.1"
-            android:gravity="center"
-            android:text="date"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:theme="@style/AppTheme" />
-
-        <ProgressBar
-            android:id="@+id/expiration_bar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.5"
-            android:visibility="gone" />
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="7dp"
+            android:layout_marginStart="7dp"
+            android:background="@color/button_color"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <ProgressBar
+                android:id="@+id/expiration_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/item_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="left|center"
+                android:paddingLeft="20px"
+                android:text="diet coke"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:theme="@style/AppTheme" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/button_color"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:padding="10dp"
+                    android:text="@string/expiration_tag"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:theme="@style/AppTheme" />
+
+                <TextView
+                    android:id="@+id/expiration_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|center"
+                    android:gravity="center_horizontal"
+                    android:padding="0dp"
+                    android:text="date"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:theme="@style/AppTheme" />
+
+                <TextView
+                    android:id="@+id/Days"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical|center"
+                    android:padding="0dp"
+                    android:text="Days"
+                    android:textColor="@android:color/holo_orange_light"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:theme="@style/AppTheme" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -44,6 +44,11 @@
     <string name="tag2Name">refrigerator or freezer</string>
     <string name="all">all</string>
     <string name="tag1Name">tag Name</string>
+    <string name="expiration_tag">Food expires in</string>
+
+    <string name="location">Location: </string>
+    <string name="type">Type tag: </string>
+    <string name="expiration_length">Length of expiration: </string>
     <!-- Strings related to refrigerator -->
     <string-array name="names">
         <item>Apple</item>
