@@ -126,7 +126,7 @@ public class CustomAdapter extends BaseAdapter {
         Date temp = cal.getTime();
         long diff = temp.getTime() - Curr_Date.getTime();
 
-        long diffDays = diff / (24 * 60 * 60 * 1000);
+        long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
         expiration_bar.setText(Long.toString(diffDays));
 
         icon.setImageResource(icons.get(list.get(position).getTag()));
