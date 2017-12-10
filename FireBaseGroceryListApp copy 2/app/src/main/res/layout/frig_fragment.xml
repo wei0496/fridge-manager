@@ -12,7 +12,7 @@
         android:layout_margin="10dp"
         android:background="@color/button_color"
         android:orientation="horizontal"
-        android:padding="30dp"
+        android:padding="5dp"
         tools:layout_editor_absoluteX="10dp">
 
         <ImageView
@@ -25,9 +25,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_vertical|end"
             android:layout_marginLeft="7dp"
-            android:layout_marginStart="7dp"
+            android:layout_marginStart="20dp"
             android:background="@color/button_color"
             android:orientation="vertical"
             android:padding="5dp">
@@ -42,21 +42,22 @@
 
             <TextView
                 android:id="@+id/item_id"
-                android:layout_width="match_parent"
+                android:layout_width="261dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:gravity="left|center"
+                android:gravity="center"
                 android:paddingLeft="20px"
                 android:text="diet coke"
                 android:textColor="@color/cardview_light_background"
-                android:textSize="30sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:theme="@style/AppTheme" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="261dp"
                 android:layout_height="wrap_content"
                 android:background="@color/button_color"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
@@ -81,7 +82,7 @@
                     android:padding="0dp"
                     android:text="date"
                     android:textColor="@android:color/holo_orange_dark"
-                    android:textSize="24sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     android:theme="@style/AppTheme" />
 

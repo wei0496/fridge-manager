@@ -7,14 +7,17 @@
     android:background="@drawable/product_bg2revise"
     android:minHeight="30dp"
     android:orientation="horizontal"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
     android:weightSum="4">
 
     <TextView
         android:id="@+id/id"
-        android:layout_width="104dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_weight="1"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="15dp"
         android:gravity="center"
         android:text="X"
         android:textColor="#ff0000"
@@ -22,7 +25,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_width="474dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
