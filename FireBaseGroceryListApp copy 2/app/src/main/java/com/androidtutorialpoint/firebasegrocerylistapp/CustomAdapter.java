@@ -1,7 +1,6 @@
 package com.androidtutorialpoint.firebasegrocerylistapp;
 
 import android.content.Context;
-import java.util.Date;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +34,6 @@ public class CustomAdapter extends BaseAdapter {
     private HashMap<String,Integer> icons;   // icons for the item
     private int expiration_value[];  // expiration duration for the item
     private ArrayList<ListItem> list;
-    private Date Curr_Date;
     private ArrayList<ListItem> listAll;
 
     Context context;
@@ -103,35 +97,9 @@ public class CustomAdapter extends BaseAdapter {
 
 //        icon.setImageResource(icons.get(list.get(position).getName()));
 
-        String ExpirationDuration = list.get(position).getExpirationDate();
-        String CreationDate = list.get(position).getListItemCreationDate();
-
-        Calendar cal = Calendar.getInstance();
-        DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        Curr_Date = new Date();
-        try {
-            Date date = formatter.parse(CreationDate);
-            //Log.e(TAG, formatter.format(date));
-            cal.set(Calendar.YEAR, date.getYear());
-            cal.set(Calendar.MONTH, date.getMonth());
-            cal.set(Calendar.DAY_OF_MONTH, date.getDate());
-            //Log.e(TAG, formatter1.format(cal));
-        } catch (java.text.ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        //set the expiration notification to be one day before the actual expiration
-        cal.add(Calendar.HOUR_OF_DAY, 24 * (Integer.parseInt(ExpirationDuration)-1));
-        cal.add(Calendar.YEAR, 1900);
-        Date temp = cal.getTime();
-        long diff = temp.getTime() - Curr_Date.getTime();
-
-        long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
-        expiration_bar.setText(Long.toString(diffDays));
-
         icon.setImageResource(icons.get(list.get(position).getTag()));
         item_id.setText(list.get(position).getName());
-        //expiration_bar.setText(list.get(position).getExpirationDate());
+        expiration_bar.setText(list.get(position).getExpirationDate());
 
         return row;
     }

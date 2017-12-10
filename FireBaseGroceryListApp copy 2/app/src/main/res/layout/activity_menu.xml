@@ -22,7 +22,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg5"
+            android:background="@drawable/bg0"
             android:paddingLeft="15dp"
             android:paddingRight="15dp"
             android:paddingTop="16dp">
@@ -31,6 +31,7 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -40,38 +41,19 @@
                     android:layout_height="50dp"
                     android:layout_alignBottom="@+id/linearLayout"
                     android:layout_centerHorizontal="true"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/comicsansregular"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginBottom="10dp"
+
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="Adding Grocery"
                     android:textColor="#ffffff"
                     android:textSize="30sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/scan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="45dp"
-                    android:layout_alignBottom="@+id/linearLayout"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/comicsansregular"
-                    android:gravity="center"
-                    android:text="Scan Receipt"
-                    android:textColor="@android:color/holo_blue_light"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
@@ -84,14 +66,28 @@
                         android:layout_toLeftOf="@+id/btnUseGallery"
                         android:layout_toStartOf="@+id/btnUseGallery"
                         android:layout_weight="1"
-                        android:background="@mipmap/submit_button_1"
+                        android:background="@mipmap/submit_button1revise"
 
                         android:hapticFeedbackEnabled="false"
                         android:text="Use Camera"
                         android:textColor="#ffffff"
-                        android:textSize="14sp"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_editor_absoluteY="16dp" />
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/scan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_alignBottom="@+id/linearLayout"
+                        android:layout_centerHorizontal="true"
+
+
+                        android:layout_weight="1"
+                        android:fontFamily="@font/comicsansregular"
+                        android:gravity="center"
+                        android:text="Scan Receipt"
+                        android:textColor="@android:color/holo_blue_light"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
                     <Button
                         android:id="@+id/btnUseGallery"
@@ -101,35 +97,35 @@
                         android:layout_toLeftOf="@+id/btnUseGallery"
                         android:layout_toStartOf="@+id/btnUseGallery"
                         android:layout_weight="1"
-                        android:background="@mipmap/submit_button_1"
+                        android:background="@mipmap/submit_button1revise"
 
                         android:hapticFeedbackEnabled="false"
                         android:text="Use Gallery"
                         android:textColor="#ffffff"
-                        android:textSize="14sp"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_editor_absoluteY="16dp" />
+                        android:textSize="14sp" />
+
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
-                    android:layout_height="244dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/linearLayout"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="50dp"
-                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
                     <ListView
                         android:id="@+id/lv"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="360dp"
                         android:layout_below="@+id/linearLayout"
+
+
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
-                        android:layout_weight="1"
                         android:divider="@drawable/line2"
                         android:dividerHeight="1dp">
 
@@ -201,7 +197,7 @@
                 android:layout_marginBottom="40dp"
                 android:gravity="center"
                 android:text="TextView"
-                android:textColor="@color/strokeColor"
+                android:textColor="@color/tab_title"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
