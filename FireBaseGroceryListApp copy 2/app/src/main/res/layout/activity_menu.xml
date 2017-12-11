@@ -86,7 +86,7 @@
                         android:gravity="center"
                         android:text="Scan Receipt"
                         android:textColor="@android:color/holo_blue_light"
-                        android:textSize="10sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
@@ -110,7 +110,7 @@
                 <LinearLayout
                     android:id="@+id/linearLayout2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="332dp"
                     android:layout_below="@+id/linearLayout"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
@@ -121,7 +121,7 @@
                     <ListView
                         android:id="@+id/lv"
                         android:layout_width="wrap_content"
-                        android:layout_height="360dp"
+                        android:layout_height="match_parent"
                         android:layout_below="@+id/linearLayout"
 
 
@@ -150,8 +150,8 @@
                     android:layout_weight="5"
                     android:background="@drawable/submit_button"
                     android:text="Submit"
-                    android:textSize="15sp"
-                    android:textColor="#ffffff" />
+                    android:textColor="#ffffff"
+                    android:textSize="15sp" />
 
                 <Button
                     android:id="@+id/add"
@@ -249,9 +249,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/chelaone_regular"
                 android:gravity="center"
                 android:text="Magic Fridge"
-                android:fontFamily="@font/chelaone_regular"
                 android:textColor="@android:color/background_light"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -266,14 +266,13 @@
                 <TextView
                     android:layout_width="40dp"
                     android:layout_height="20dp"
-                    android:text="Filter"
                     android:layout_gravity="end"
                     android:layout_marginRight="23dp"
+                    android:gravity="center"
+                    android:text="Filter"
                     android:textColor="#ffffff"
                     android:textSize="15dp"
-                    android:gravity="center"
-                    android:textStyle="italic"
-                    />
+                    android:textStyle="italic" />
 
                 <Spinner
                     android:id="@+id/Spn"
@@ -302,10 +301,10 @@
                         android:id="@android:id/tabs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp"
-                        android:textAlignment="textStart"
                         android:layout_gravity="start"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:textAlignment="textStart"
                         android:visibility="visible" />
 
                     <FrameLayout

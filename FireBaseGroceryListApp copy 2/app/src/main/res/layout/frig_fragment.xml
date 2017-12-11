@@ -17,18 +17,16 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center_vertical|start"
             app:srcCompat="@mipmap/ic_launcher" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|end"
-            android:layout_marginLeft="7dp"
-            android:layout_marginStart="20dp"
             android:background="@color/button_color"
+            android:gravity="end"
             android:orientation="vertical"
             android:padding="5dp">
 
@@ -37,25 +35,37 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="right"
                 android:visibility="gone" />
 
             <TextView
                 android:id="@+id/item_id"
                 android:layout_width="261dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="right"
                 android:gravity="center"
-                android:paddingLeft="20px"
                 android:text="diet coke"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:theme="@style/AppTheme" />
 
+            <TextView
+                android:id="@+id/location_tag"
+                android:layout_width="261dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:text="in freezer"
+                android:textColor="@android:color/holo_orange_light"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:theme="@style/AppTheme" />
+
             <LinearLayout
                 android:layout_width="261dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:background="@color/button_color"
                 android:gravity="center"
                 android:orientation="horizontal">
