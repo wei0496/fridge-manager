@@ -81,7 +81,7 @@ public class ListItem {
     }
 
     public String getTag() {
-        if(Tag!=null)
+        if(!Tag.isEmpty())
             return Tag;
         else
             return null;

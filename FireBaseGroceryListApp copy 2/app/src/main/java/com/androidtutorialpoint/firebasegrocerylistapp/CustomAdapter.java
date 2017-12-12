@@ -51,6 +51,8 @@ public class CustomAdapter extends BaseAdapter {
         names = baseContext.getResources().getStringArray(R.array.names);  //retrieving list of episodes predefined in strings-array "episodes" in strings.xml
 
         icons = new HashMap<>();   //Could also use helper function "getDrawables(..)" below to auto-extract drawable resources, but keeping things as simple as possible.
+//        String[] tag1s = {"meat", "veggies", "dairy", "ice-cream","fruit"};
+
         icons.put("meat",R.mipmap.meat_icon);
         icons.put("fruit",R.mipmap.fruits_icon);
         icons.put("dairy",R.mipmap.milk_icon);
@@ -129,7 +131,10 @@ public class CustomAdapter extends BaseAdapter {
         long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
         expiration_bar.setText(Long.toString(diffDays));
 
+
         icon.setImageResource(icons.get(list.get(position).getTag()));
+
+
         item_id.setText(list.get(position).getName());
         //expiration_bar.setText(list.get(position).getExpirationDate());
 
