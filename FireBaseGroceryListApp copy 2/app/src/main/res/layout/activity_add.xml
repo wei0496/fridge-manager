@@ -137,7 +137,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_bold"
-                    android:hint="Expired Date(Days)"
+                    android:hint="@string/expiration_duration"
                     android:inputType="number"
                     android:singleLine="true"
                     android:textColor="@android:color/holo_blue_light"
