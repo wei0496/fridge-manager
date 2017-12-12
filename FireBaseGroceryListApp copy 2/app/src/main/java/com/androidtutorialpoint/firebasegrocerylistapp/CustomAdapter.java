@@ -98,7 +98,7 @@ public class CustomAdapter extends BaseAdapter {
         ImageView icon = (ImageView) row.findViewById(R.id.icon);
         TextView item_id = (TextView) row.findViewById(R.id.item_id);
         TextView expiration_bar = (TextView) row.findViewById(R.id.expiration_date);
-
+        TextView free = (TextView) row.findViewById(R.id.location_tag);
 //        item_id.setText(names[position]);
 //        expiration_bar.setMax(expiration_value[position]);
 //        icon.setImageResource(icons.get(position).intValue());
@@ -131,8 +131,13 @@ public class CustomAdapter extends BaseAdapter {
         long diffDays = diff / (24 * 60 * 60 * 1000) + 1;
         expiration_bar.setText(Long.toString(diffDays));
 
+        if(list.get(position).getReOrFree()=="true")
+            free.setText("in Refrigerator");
+        else
+            free.setText("in Freezer");
 
-        icon.setImageResource(icons.get(list.get(position).getTag()));
+
+            icon.setImageResource(icons.get(list.get(position).getTag()));
 
 
         item_id.setText(list.get(position).getName());

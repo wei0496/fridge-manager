@@ -392,8 +392,8 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         // whether in background list
         inBG = new HashMap<>();
         find = new HashMap<>();
-        //for test.
-//        ocrResult =new String[] {"Apple","pear"};
+//        //for test.
+//        ocrResult =new String[] {"366 VAN SOY MILK OG , "};
 //        addToView(ocrResult);
 
         // submit new list to firebase
@@ -1291,6 +1291,11 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     if (bgItem != null) {
                         ListItem listItem = new ListItem(bgItem);
                         Log.w("item1:",listItem.getListItemText());
+
+                        listItem.setReOrFree(true);
+                        if(listItem.getTag()==null)
+                            listItem.setTag(tag1s[0]);
+
 
                         inBG.put(listItem.getListItemText(),true);
                         list.add(listItem);
