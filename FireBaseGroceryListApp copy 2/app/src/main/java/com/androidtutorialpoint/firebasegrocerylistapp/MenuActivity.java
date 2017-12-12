@@ -56,6 +56,7 @@ import android.widget.Toast;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginManager;
 import com.facebook.login.widget.ProfilePictureView;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -202,7 +203,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         setContentView(R.layout.activity_menu);
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
-
+        LoginManager.getInstance().setLoginBehavior(LoginBehavior.WEB_ONLY);
 
         view = this.getWindow().getDecorView().findViewById(android.R.id.content);
         if (view instanceof EditText) {
@@ -361,7 +362,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
         list = new ArrayList<>();
         initView();
-        initData();
+//        initData();
         adapter = new MyAdapter(list);
         lv.setAdapter(adapter);
 
