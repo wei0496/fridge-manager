@@ -49,6 +49,7 @@
     <string name="location">Location: </string>
     <string name="type">Type tag: </string>
     <string name="expiration_length">Length of expiration: </string>
+    <string name="expiration_duration">Expiration duration (Days):</string>
     <!-- Strings related to refrigerator -->
     <string-array name="names">
         <item>Apple</item>
