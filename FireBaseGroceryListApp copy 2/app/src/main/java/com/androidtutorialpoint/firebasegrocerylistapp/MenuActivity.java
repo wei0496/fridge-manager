@@ -601,7 +601,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         mListItemRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Log.d(TAG+"Added",dataSnapshot.getValue(ListItem.class).toString());
+//                Log.d(TAG+"Added",dataSnapshot.getValue(ListItem.class).toString());
                 fetchData(dataSnapshot);
                 frigAdapter.setAll(myListItems);
                 refrigAdapter.setAll(refrigItems);
