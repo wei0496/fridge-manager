@@ -47,6 +47,11 @@ public class AddActivity extends AppCompatActivity {
         }
     }
 
+    //Goal: To add food manually to the fridge.
+
+
+    //Init: name, date ,tag1(type), tag2(layer)
+
     private void initView() {
         name = (EditText) findViewById(R.id.name);
         date = (EditText) findViewById(R.id.date);
@@ -71,6 +76,8 @@ public class AddActivity extends AppCompatActivity {
                 ShowTag2Dialog();
             }
         });
+
+        //When submit button clicked, collect the data of the user entry
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +97,8 @@ public class AddActivity extends AppCompatActivity {
                 Toast.makeText(AddActivity.this,"Add Successfully",Toast.LENGTH_SHORT).show();
             }
         });
+
+        //Do not add food, back to the previous page
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,6 +109,7 @@ public class AddActivity extends AppCompatActivity {
         });
     }
 
+    //Show a Dialog for user to choose Tags
     private void ShowTag1Dialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth);
@@ -125,6 +135,8 @@ public class AddActivity extends AppCompatActivity {
         });
         builder.show();
     }
+
+    //When click on the blank area other than the input area, the soft keyboard will be hidden automatically
     private static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(

@@ -802,7 +802,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     e.printStackTrace();
                 }
             }
-            // fro add item
+            // for add item
             if(requestCode == 200)
             {
                 String name = data.getStringExtra("name");
@@ -958,12 +958,15 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             return position;
         }
 
+
+        //Get a list of view of the grocery list, which is extracted data from the OCR and can be
+        //edited by users to get precise entries for the fridge.
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             convertView = LayoutInflater.from(MenuActivity .this).inflate(R.layout.item_list, null);
 
             TextView id = (TextView) convertView.findViewById(R.id.id);
-            //id.setText(Integer.toString(position));
+
 
             TextView name = (TextView) convertView.findViewById(R.id.Name);
             name.setText(mylist.get(position).getListItemText());
@@ -976,35 +979,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     showNameEditDialog(pos);
                 }
             });
-/*
-            name.addTextChangedListener(new TextWatcher() {
-                String old;
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    old = s.toString();
-                }
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    if(s.toString().trim().equals(""))
-                        s = new SpannableStringBuilder(old);
-                    else {
-                        list.get(position).setListItemText(s.toString());
-                        if(find.containsKey(list.get(position).getListItemText()))
-                        {
-                            int index = find.get(list.get(position).getListItemText());
-                            updateBG.get(index).setListItemText(s.toString());
-                        }
-                        Log.w("Name Changed", list.get(position).getListItemText());
-                    }
-                }
-            });
-*/
 
             TextView tag1 = (TextView) convertView.findViewById(R.id.tag1);
             String tag1str = "";
@@ -1040,36 +1015,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                     showDateEditDialog(pos);
                 }
             });
-            /*
-            et.addTextChangedListener(new TextWatcher() {
-                String old;
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    old = s.toString();
-                }
 
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    if(s.equals(""))
-                        s = new SpannableStringBuilder(old);
-                    else{
-                        list.get(position).setExpirationDate(s.toString());
-                        if(find.containsKey(list.get(position).getListItemText()))
-                        {
-                            int index = find.get(list.get(position).getListItemText());
-                            updateBG.get(index).setTag(s.toString());
-                        }
-                        s = new SpannableStringBuilder(s.toString()+"Days");
-                        Log.w("Day Changed", list.get(position).getExpirationDate());
-                    }
-                }
-            });
-            */
 
             tag1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1106,6 +1052,8 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             });
             return convertView;
         }
+
+        //************ User edit starts *************//
 
         private void showNameEditDialog(final int pos){
             AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this, R.style.AlertDialogCustom);
@@ -1195,6 +1143,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         });
         builder.show();
     }
+    //*********** User edit ends ************//
 
     /********** Functions for shopping page --end *************/
 
@@ -1400,7 +1349,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
                 if(m.find())
                 {
-//                    resList.add(m.group(0));
                     String tempStr = replaceChar(m.group(0));
 
                     if(tempStr.trim().isEmpty())
@@ -1470,6 +1418,8 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
     /**************** used for OCR and camera --end***************/
 
+
+    //When click on the blank area other than the input area, the soft keyboard will be hidden automatically
     private static void hideSoftKeyboard(Activity activity) {
         InputMethodManager inputMethodManager =
                 (InputMethodManager) activity.getSystemService(

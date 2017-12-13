@@ -1,8 +1,6 @@
 package com.androidtutorialpoint.firebasegrocerylistapp;
 
-/**
- * Created by 12118 on 2017/11/25.
- */
+
 
 public class Item {
     public int id;
