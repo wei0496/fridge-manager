@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+//This is a class for the food item to be uploaded into firebase
 @IgnoreExtraProperties
 public class ListItem {
 
@@ -43,6 +44,8 @@ public class ListItem {
     public void setListItemCreationDate(String listItemCreationDate) {
         this.listItemCreationDate = listItemCreationDate;
     }
+
+    // set expiration date
     public boolean setExpirationDate(String date)
     {
         try {
@@ -68,6 +71,8 @@ public class ListItem {
         else
             return null;
     }
+
+    // get food creationdate
     public String getListItemCreationDate() {
         if(listItemText!=null)
             return listItemCreationDate;

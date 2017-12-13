@@ -33,25 +33,25 @@ public class AlarmReceiver extends BroadcastReceiver {
     private String Uid;
     private Date Curr_Date;
     public static final String TAG = "myLogs";
-    //Calendar cal = Calendar.getInstance();
 
     @Override
     public void onReceive(final Context context, Intent intent) {
         Log.e(TAG, "Received");
-        //check if any of our food are expiring here
 
+        //check if any of our food are expiring here
         SimpleDateFormat sdf = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         Curr_Date = new Date();
-        //setContentView(R.layout.activity_main);
 
+        // see if the app is connected to the database
         try {
+            // get all the food items of the logged in user
             Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
             mDB = FirebaseDatabase.getInstance().getReference();
             mListItemRef = mDB.child("listItem").child(Uid);
 
             mListItemRef.addValueEventListener(new ValueEventListener() {
                 @Override
+                //iterate through all items to see if they expired
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     for (DataSnapshot child : dataSnapshot.getChildren()) {
                         ListItem listItem = child.getValue(ListItem.class);
@@ -61,13 +61,12 @@ public class AlarmReceiver extends BroadcastReceiver {
                         Log.e(TAG, CreationDate);
                         Calendar cal = Calendar.getInstance();
                         DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+                        // set a date object to the item's expired date
                         try {
                             Date date = formatter.parse(CreationDate);
-                            //Log.e(TAG, formatter.format(date));
                             cal.set(Calendar.YEAR, date.getYear());
                             cal.set(Calendar.MONTH, date.getMonth());
                             cal.set(Calendar.DAY_OF_MONTH, date.getDate());
-                            //Log.e(TAG, formatter1.format(cal));
                         } catch (java.text.ParseException e) {
                             // TODO Auto-generated catch block
                             e.printStackTrace();
@@ -79,6 +78,8 @@ public class AlarmReceiver extends BroadcastReceiver {
                         Log.e(TAG, "comparing...");
                         Log.e(TAG, formatter.format(Curr_Date));
                         Log.e(TAG, formatter.format(temp));
+
+                        //if the food expired in one day, send the notification to the user!
                         if (temp.compareTo(Curr_Date) < 0) {
                             Log.e(TAG, "expired!");
                             flag = 1;
@@ -92,6 +93,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
                             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
+                            // set the notification content
                             Notification notification = builder.setContentTitle("Magic Fridge Notification!!")
                                     .setContentText("Your " + food + " are expiring in one day! -- Fridge Manager!!")
                                     .setTicker("Your Food are expiring soon! -- Fridge Manager")

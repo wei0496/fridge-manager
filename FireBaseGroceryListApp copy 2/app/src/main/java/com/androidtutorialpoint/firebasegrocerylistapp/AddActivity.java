@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+// Serve as a addition function to firebase
+
 public class AddActivity extends AppCompatActivity {
     String[] tag1s = {"meat", "veggies", "dairy", "ice-cream","fruit","other"};
     String[] tag2s = {"refrigerator", "freezer"};

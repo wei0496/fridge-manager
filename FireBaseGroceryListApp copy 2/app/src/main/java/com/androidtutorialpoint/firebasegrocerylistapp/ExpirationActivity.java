@@ -33,7 +33,7 @@ public class ExpirationActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
- Curr_Date = new Date();
+        Curr_Date = new Date();
         //setContentView(R.layout.activity_main);
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
@@ -44,6 +44,7 @@ public class ExpirationActivity extends Activity {
         PendingIntent broadcast = PendingIntent.getBroadcast(ExpirationActivity.this, 100, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Set the alarm to start at 10:00 AM
+        // IMPORTANT: IF you want to test with notification, be sure to set the trigger time before current time, otherwise it will be triggered tomorrow
         // change the time below to set a different start time
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
@@ -51,7 +52,7 @@ public class ExpirationActivity extends Activity {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
 
-        // The below code is for demo, triggered every 30 seconds
+        // The below code is for demo, triggered every 30 seconds, change the intervalmillis to the desire variable you want
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 3000, broadcast);
         Log.e(TAG, "Expires");
 
