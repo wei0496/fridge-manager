@@ -22,12 +22,14 @@ import java.util.List;
  */
 
 public class spAdapter extends ArrayAdapter<CheckBox> {
+    //for specific filter
     ArrayList<CheckBox> cbName;
     Context context;
     ArrayList<CheckBox> cbList;
     public ArrayList<String> filterList;
     filterCallBack mCallBack;
     public spAdapter(@NonNull Context context, int resource, @NonNull ArrayList<CheckBox> objects,filterCallBack mCallBack) {
+        //getting the specific filter and make it to checkbox
         super(context, resource, objects);
         this.context = context;
         cbName = new ArrayList<>();
@@ -38,7 +40,6 @@ public class spAdapter extends ArrayAdapter<CheckBox> {
 
 
         cbName.addAll(objects);
-//        cbName = objects;
         cbList = new ArrayList<>();
         filterList  = new ArrayList<>();
         this.mCallBack = mCallBack;
@@ -47,7 +48,6 @@ public class spAdapter extends ArrayAdapter<CheckBox> {
     @Nullable
     @Override
     public CheckBox getItem(int position) {
-//        Log.w("getItem",cbName.get(position).getText().toString());
         return cbList.get(position);
     }
 
@@ -64,6 +64,7 @@ public class spAdapter extends ArrayAdapter<CheckBox> {
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        // how will it look like when drop down.
         return getCustomView(position,convertView,parent);
     }
 
@@ -79,6 +80,9 @@ public class spAdapter extends ArrayAdapter<CheckBox> {
         else {
             row = covertView;
         }
+        // the first item should look like a arrow.
+        // each item has a text and a check box.
+        // for the fist item. we just let the checkbox GONE, left the indicator.
         if(position ==0)
         {
             row.findViewById(R.id.spinnerRow).setVisibility(View.INVISIBLE);
@@ -86,6 +90,7 @@ public class spAdapter extends ArrayAdapter<CheckBox> {
         }
         else
         {
+            // other items have checkbox
             row.findViewById(R.id.filterTxt).setVisibility(View.GONE);
 
 
@@ -97,6 +102,7 @@ public class spAdapter extends ArrayAdapter<CheckBox> {
                 cbList.add(cb);
             else
                 cbList.set(position,cb);
+            //add listener, for filter.
             cb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

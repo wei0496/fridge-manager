@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
         LoginManager.getInstance().setLoginBehavior(LoginBehavior.WEB_ONLY);
 
         auth = FirebaseAuth.getInstance();
-        //qpx
         //check user is login:
         if(auth.getCurrentUser()!=null)
         {

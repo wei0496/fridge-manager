@@ -203,6 +203,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         setContentView(R.layout.activity_menu);
         FacebookSdk.sdkInitialize(getApplicationContext());
         AppEventsLogger.activateApp(this);
+        //for facebook log out.
         LoginManager.getInstance().setLoginBehavior(LoginBehavior.WEB_ONLY);
 
         view = this.getWindow().getDecorView().findViewById(android.R.id.content);
@@ -244,16 +245,19 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         tabHost = (TabHost) findViewById(R.id.regriTab);
         tabHost.setup();
 
+        //firebase auth
         Uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         mDB= FirebaseDatabase.getInstance().getReference();
         /********** Account page related initialization **********/
 
         bmp = BitmapFactory.decodeResource(getResources(),R.drawable.defaultavater);
 
+        //retrive avatar. if have, set it. if doesn't have, use the default one.
         avatar = (ImageView) findViewById(R.id.avatar);
         Bitmap avaBit = getAvatar();
         avatar.setImageBitmap(avaBit);
 
+        //long click to changing avatar.
         avatar.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
@@ -307,14 +311,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         });
 
 
-
-
-
-
-
-
-
-
         profile = Profile.getCurrentProfile();
 
         //change password button
@@ -328,7 +324,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             }
         });
 
-        //qpx
         //logout:
         auth = FirebaseAuth.getInstance();
         // who is User
@@ -360,9 +355,10 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             getSupportActionBar().hide();
         }
 
+        //initiate list to Empty. waiting to be add to refrigerator
         list = new ArrayList<>();
         initView();
-//        initData();
+        //list's adapter
         adapter = new MyAdapter(list);
         lv.setAdapter(adapter);
 
@@ -404,7 +400,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
             public void onClick(View v) {
                 if (list.size() == 0)
                     return;
-
+                //check repeat
                 for(int i=0;i<list.size();i++)
                 {
                     ListItem listItem = list.get(i);
@@ -467,7 +463,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
         // draw layout::
         setupTab();
-
+        //for tab in the first activity
         tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
 
             @Override
@@ -503,12 +499,9 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         }
         sp = new spAdapter(this,0,tagList,this);
 
-
-
-
         filter.setAdapter(sp);
 
-
+        //for delete item both on all Item tab, refrigerator, freezer tab
         mFrigItemList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long l) {
@@ -599,6 +592,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //setAll: for specific's filter. if user choose nothing, list should show all items in it.
         mListItemRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -651,6 +645,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     }
 
 
+    //get data from firebase
     private void fetchData(DataSnapshot dataSnapshot) {
         ListItem listItem=dataSnapshot.getValue(ListItem.class);
         myListItems.add(listItem);
@@ -663,11 +658,6 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         {
             freezerItems.add(listItem);
         }
-        /*
-        for(DataSnapshot data : dataSnapshot.getChildren()){
-            ListItem template = data.getValue(ListItem.class);
-            // use this object and store it into an ArrayList<Template> to use it further
-            myListItems.add(template);*/
         updateUI();
     }
 
@@ -728,6 +718,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference ref = database.getReference().child("listItem").child(uid);
         String key = ref.push().getKey();
+        //for update
         Map<String, Object> listItemValues = listItem.toMap();
         Map<String, Object> childUpdates = new HashMap<>();
         childUpdates.put(key, listItemValues);
@@ -735,7 +726,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         Log.w("ref",ref.toString());
 
     }
-
+    // if background database does not have this item. put it into the back database
     public void updateToBackDB(ListItem listItem)
     {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("resource");
@@ -750,7 +741,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-
+        // for camera/ select from gallary related.
         if(resultCode != RESULT_CANCELED){
 
             /*********** used for OCR and Camera --start **************/
@@ -821,6 +812,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
     private Bitmap getAvatar()
     {
+        //get avatar from firebase
         Log.w("chile name",FirebaseStorage.getInstance().getReference().child("avatar").toString());
         StorageReference sto = FirebaseStorage.getInstance().getReference().child("avatar").child(Uid);
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
@@ -845,7 +837,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         return res;
 
     }
-
+    // get avatar from local gallery
     private Bitmap loadAvatarFromLocal() {
 
         Bitmap res = null;
@@ -865,6 +857,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
     }
 
     private String saveToLocal(Bitmap bitmap) throws FileNotFoundException {
+        //save the avatar to android local library
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         String userName = FirebaseAuth.getInstance().getCurrentUser().getEmail();
         File dir = cw.getDir(userName,Context.MODE_PRIVATE);
@@ -875,6 +868,8 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                bitmap.compress(Bitmap.CompressFormat.JPEG,100,fo);
                return dir.getAbsolutePath();
     }
+
+    // upload avatar to firebase
     private boolean updateAvatarToDB(Bitmap bitmap)
     {
         StorageReference stoRef = FirebaseStorage.getInstance().getReference().child("avatar").child(Uid);
@@ -901,6 +896,8 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         lv = (ListView) findViewById(R.id.lv);
     }
 
+
+    // for test the adding grocery function.
     private void initData() {
         ListItem item = new ListItem();
 
@@ -1221,9 +1218,10 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         addToView(ocrResult);
     } //process the taken image
 
-    //qpx: add to view: add the ocr result to listview
+    //add to view: add the ocr result to listview
     public void addToView(String[] result)
     {
+        //result is null.
         if(result.length == 0)
             return;
         updateBG = new ArrayList<>();
@@ -1279,6 +1277,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
 
     private String[] split(String raw)  //split the raw result
     {
+        //extract food item from receipt
         List<String> resList = new ArrayList<>();
         String[] tempRaw = raw.split("\n");
         ArrayList<String> tempL = new ArrayList<>();
@@ -1317,6 +1316,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                 else {
 
                     String[] group = temp[i].split(" ");
+                    //begin with ==> or => should not be an food item
                     if(group.length==0||group[0]=="==>"||group[0]=="=>")
                     {
                         continue;
@@ -1344,6 +1344,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
                 }
             }
             //target:
+            // target's food item will have FN in it
             if(temp[i].matches(".*\\bFN\\b .*")) {
                 Matcher m = Pattern.compile("(?<=[0-9]\\b)(.*)\\b(?=FN)").matcher(temp[i]);
 
@@ -1369,6 +1370,7 @@ public class MenuActivity extends AppCompatActivity implements filterCallBack {
         StringBuilder sb = new StringBuilder();
         for(char c:str.toCharArray())
         {
+            // firebase does not allow these character
             if(c=='.'||c=='$'||c=='#'||c=='['||c==']')
                 continue;
             sb.append(c);

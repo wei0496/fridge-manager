@@ -14,14 +14,14 @@ public class BGItem implements Serializable {
     int expiration_duration;
     String id;
     String type_tag;
-
+    // initiate background database
     BGItem(int ed, String id, String type_tag)
     {
         this.expiration_duration = ed;
         this.type_tag = type_tag;
         this.id = id;
     }
-
+    //transform from listItem to BGItem
     BGItem(ListItem listItem)
     {
 
@@ -34,7 +34,7 @@ public class BGItem implements Serializable {
     BGItem()
     {
     }
-
+    //for firebase
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();

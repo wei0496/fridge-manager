@@ -17,14 +17,16 @@ public class ListItem {
     private String ExpirationDate;
     private String listItemCreationDate;
     private String Tag;
-    private Boolean reOrFree;// re: true; freezer:false
+    private Boolean reOrFree;// refrigerator: true; freezer:false
 
-
+    //transform background Item to listItem
     ListItem(BGItem bgItem)
     {
         this.listItemText = bgItem.id;
         this.ExpirationDate = Integer.toString(bgItem.expiration_duration);
         this.Tag = bgItem.type_tag;
+
+        //creation date: today
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         this.listItemCreationDate = sdf.format(new Date());
         Log.w("date::",this.listItemCreationDate);

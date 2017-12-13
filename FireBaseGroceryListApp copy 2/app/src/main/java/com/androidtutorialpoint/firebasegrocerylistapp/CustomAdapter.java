@@ -50,8 +50,8 @@ public class CustomAdapter extends BaseAdapter {
 
         names = baseContext.getResources().getStringArray(R.array.names);  //retrieving list of episodes predefined in strings-array "episodes" in strings.xml
 
+        //for icon and tag
         icons = new HashMap<>();   //Could also use helper function "getDrawables(..)" below to auto-extract drawable resources, but keeping things as simple as possible.
-//        String[] tag1s = {"meat", "veggies", "dairy", "ice-cream","fruit"};
 
         icons.put("meat",R.mipmap.meat_icon);
         icons.put("fruit",R.mipmap.fruits_icon);
@@ -59,11 +59,8 @@ public class CustomAdapter extends BaseAdapter {
         icons.put("veggies",R.mipmap.vegetables_icon);
         icons.put("ice-cream",R.mipmap.ice_cream_icon);
         icons.put("other",R.mipmap.other_icon);
-//        String[] tag1s = { "ice-cream","other"};
 
         expiration_value = baseContext.getResources().getIntArray(R.array.expiration_duration);
-//        list = new ArrayList<>();
-//        list.addAll(mListItems);
         list = mListItems;
     }
 
@@ -113,11 +110,9 @@ public class CustomAdapter extends BaseAdapter {
         Curr_Date = new Date();
         try {
             Date date = formatter.parse(CreationDate);
-            //Log.e(TAG, formatter.format(date));
             cal.set(Calendar.YEAR, date.getYear());
             cal.set(Calendar.MONTH, date.getMonth());
             cal.set(Calendar.DAY_OF_MONTH, date.getDate());
-            //Log.e(TAG, formatter1.format(cal));
         } catch (java.text.ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -136,8 +131,8 @@ public class CustomAdapter extends BaseAdapter {
         else
             free.setText("in Freezer");
 
-
-            icon.setImageResource(icons.get(list.get(position).getTag()));
+        //based on the tag1, set icon.
+        icon.setImageResource(icons.get(list.get(position).getTag()));
 
 
         item_id.setText(list.get(position).getName());
@@ -177,10 +172,6 @@ public class CustomAdapter extends BaseAdapter {
                     temp.removeValue();
                 }
 
-//                HashMap<String,Object> updatemap = new HashMap<>();
-//                updatemap.put(Uid,updateList);
-//                dbref.updateChildren(updatemap);
-
             }
 
             @Override
@@ -211,6 +202,7 @@ public class CustomAdapter extends BaseAdapter {
             return false;
         }
     }
+    //specific's filter
     public void filter(ArrayList<String> filerList)
     {
         if(filerList.size()==0)
